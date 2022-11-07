@@ -66,7 +66,7 @@ It is assumed that you have a good understanding of how Antora works. You’ll n
 
 2. Clone the following repos into that folder (let git name the folders)
 
-   `git clone https://github.com/datastax/datastax-streaming-docs-site`
+   `git clone https://github.com/datastaxdocs/datastax-streaming-docs-site`
 
    `git clone https://github.com/datastax/astra-streaming-docs`
 
@@ -86,7 +86,7 @@ It is assumed that you have a good understanding of how Antora works. You’ll n
 
    `npm install`
 
-   `npm i -g @antora/cli`
+   `npm i --location=global @antora/cli`
 
    `antora -v`
 

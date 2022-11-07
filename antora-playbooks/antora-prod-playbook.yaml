@@ -1,12 +1,12 @@
 site:
-  title: LOCAL DataStax Streaming Docs
+  title: DataStax Streaming Docs
   start_page: streaming::index.adoc
   url: https://docs.datastax.com/en
 
 content:
   sources:
     # DATASTAX STREAMING DOCUMENTATION MAIN PAGE
-    - url: https://github.com/datastax/datastax-streaming-docs-site.git
+    - url: https://github.com/DataStaxDocs/datastax-streaming-docs-site.git
       edit_url: '{web_url}/blob/{refname}/{path}'
       start_path: site-main
       branches: 
