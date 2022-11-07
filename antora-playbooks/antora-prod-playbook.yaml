@@ -6,7 +6,7 @@ site:
 content:
   sources:
     # DATASTAX STREAMING DOCUMENTATION MAIN PAGE
-    - url: https://github.com/DataStaxDocs/datastax-streaming-docs-site.git
+    - url: https://github.com/datastaxdocs/datastax-streaming-docs-site.git
       edit_url: '{web_url}/blob/{refname}/{path}'
       start_path: site-main
       branches: 
