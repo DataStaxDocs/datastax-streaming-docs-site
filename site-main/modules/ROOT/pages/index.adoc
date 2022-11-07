@@ -1,0 +1,81 @@
+= Welcome to DataStax Streaming Documentation
+:page-layout: gcx-landing
+:data-uri:
+
+++++
+<style>
+.nav-container, .toc{ display: none; }
+.doc{ margin: auto; }
+feedback-form{ visibility: hidden !important; }
+</style>
+++++
+
+== Getting started with any of our streaming products below
+
+++++
+<div class="landing-row">
+++++
+
+[sidebar.landing-card]
+.xref:learning::index.adoc[Learning Site]
+****
+--
+Learn about all the amazing things you can do with all our streaming products. We've included best practices for Apache Pulsar, a full connector reference, and examples for getting the most out of Astra's CDC feature. xref:learning::index.adoc[Learn now].
+--
+[.landing-card-body-icon]
+image::what-is-astra-db.svg[icon description,40,xref=learning::index.adoc]
+****
+
+++++
+</div>
+++++
+
+++++
+<div class="landing-row">
+++++
+
+[sidebar.landing-card]
+.xref:astra-streaming::index.adoc[Astra Streaming]
+****
+--
+Delivered as a fully-managed SaaS with boundless scale, massive throughput and low latency. Astra Streaming is the simplest way to modernize your event driven architecture and turbo charge your data in motion strategy. xref:astra-streaming::index.adoc[Read more].
+--
+[.landing-card-body-icon]
+image::create-db-now.svg[icon description,40,xref=astra-streaming::index.adoc]
+****
+
+[sidebar.landing-card]
+.xref:luna-streaming::index.adoc[Luna Streaming]
+****
+--
+A production-ready distribution of Apache Pulsar with 24/7 expert enterprise support. xref:luna-streaming::index.adoc[Read more].
+--
+[.landing-card-body-icon]
+image::what-is-astra-streaming.svg[icon description,40,xref=luna-streaming::index.adoc]
+****
+
+++++
+</div>
+++++
+
+++++
+<div class="landing-row">
+++++
+
+[sidebar.landing-card]
+.Starlight APIs
+****
+--
+xref:starlight-for-jms::index.adoc[Starlight for JMS] is the first highly compliant JMS implementation designed to run on a modern streaming platform.
+
+xref:starlight-for-kafka::index.adoc[Starlight for Kafka] brings the native Apache Kafka protocol support to Apache Pulsar by introducing a Kafka protocol handler on Pulsar brokers.
+
+xref:starlight-for-rabbitmq::index.adoc[Starlight for RabbitMQ] acts as a proxy between your RabbitMQ application and Apache Pulsar™.
+--
+[.landing-card-body-icon]
+image::what-is-datastax-luna.svg[Luna card icon,40]
+****
+
+++++
+</div>
+++++

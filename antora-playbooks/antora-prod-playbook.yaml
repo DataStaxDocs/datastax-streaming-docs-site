@@ -1,0 +1,96 @@
+site:
+  title: LOCAL DataStax Streaming Docs
+  start_page: streaming::index.adoc
+  url: https://docs.datastax.com/en
+
+content:
+  sources:
+    # DATASTAX STREAMING DOCUMENTATION MAIN PAGE
+    - url: https://github.com/datastax/datastax-streaming-docs-site.git
+      edit_url: '{web_url}/blob/{refname}/{path}'
+      start_path: site-main
+      branches: 
+        - develop #not versioned
+      tags: 
+        - streaming
+
+    # LUNA STREAMING DOCUMENTATION SITE
+    - url: https://github.com/datastax/pulsar-docs.git
+      edit_url: '{web_url}/blob/{refname}/{path}'
+      branches: 
+        - v* #all versions
+      tags: 
+        - streaming
+        - luna-streaming
+
+    # ASTRA STREAMING DOCUMENTATION SITE
+    - url: https://github.com/datastax/astra-streaming-docs.git
+      edit_url: '{web_url}/blob/{refname}/{path}'
+      branches: 
+        - v* #all versions
+      tags:
+        - streaming
+        - astra-streaming
+    
+    # PULSAR LEARNING SITE
+    - url: https://github.com/datastax/streaming-learning-docs.git
+      edit_url: '{web_url}/blob/{refname}/{path}'
+      branches: 
+        - develop #not versioned
+      tags: 
+        - streaming
+        - learning
+
+    # STARLIGHT SITE
+    - url: https://github.com/datastax/starlight-for-kafka-docs.git
+      edit_url: '{web_url}/blob/{refname}/{path}'
+      branches:
+        - v* #all versions of kafka
+      tags:
+        - streaming
+        - kafka
+
+    - url: https://github.com/datastax/starlight-for-rabbitmq-docs.git
+      edit_url: '{web_url}/blob/{refname}/{path}'
+      branches:
+        - v* #all versions of kafka
+      tags:
+        - streaming
+        - rabbitmq
+
+    - url: https://github.com/datastax/starlight-for-jms-docs.git
+      edit_url: '{web_url}/blob/{refname}/{path}'
+      branches:
+        - v* #all versions of kafka
+      tags:
+        - streaming
+        - jms
+
+runtime:
+  log:
+    level: info
+    failure_level: error
+
+asciidoc:
+  attributes:
+    source-highlighter: highlightjs
+    page-pagination: ''
+    sectanchors: ''
+    sectlinks: ''
+    id-prefix: ''
+    id-separator: '-'
+
+  extensions:
+    - lib/tabs-block.js
+
+ui:
+  bundle:
+    url: https://github.com/riptano/antora-ui-docs/releases/latest/download/ui-bundle.zip
+    snapshot: true
+  supplemental_files: supplemental-ui
+
+output:
+  dir: '~/work/datastax-streaming-docs-site/build/site'
+
+urls:
+  redirect_facility: httpd #https://docs.antora.org/antora/latest/page/page-aliases/
