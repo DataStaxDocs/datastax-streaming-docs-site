@@ -93,4 +93,6 @@ output:
   dir: '~/work/datastax-streaming-docs-site/build/site'
 
 urls:
-  redirect_facility: static #https://docs.antora.org/antora/latest/page/page-aliases/
+  # https://docs.antora.org/antora/latest/playbook/urls-redirect-facility/
+  # https://docs.antora.org/antora/latest/page/page-aliases/
+  redirect_facility: httpd
