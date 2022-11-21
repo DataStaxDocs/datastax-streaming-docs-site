@@ -10,7 +10,7 @@ content:
       edit_url: '{web_url}/blob/{refname}/{path}'
       start_path: site-main
       branches: 
-        - develop #not versioned
+        - main #not versioned
       tags: 
         - streaming
 
@@ -36,7 +36,7 @@ content:
     - url: https://github.com/datastax/streaming-learning-docs.git
       edit_url: '{web_url}/blob/{refname}/{path}'
       branches: 
-        - develop #not versioned
+        - main #not versioned
       tags: 
         - streaming
         - learning
