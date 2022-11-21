@@ -1,4 +1,4 @@
-= Welcome to DataStax Streaming Documentation
+= DataStax Streaming Documentation
 :page-layout: gcx-landing
 :data-uri:
 
