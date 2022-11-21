@@ -2,14 +2,6 @@
 :page-layout: gcx-landing
 :data-uri:
 
-++++
-<style>
-.nav-container, .toc{ display: none; }
-.doc{ margin: auto; }
-feedback-form{ visibility: hidden !important; }
-</style>
-++++
-
 == Getting started with any of our streaming products below
 
 ++++
