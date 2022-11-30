@@ -1,0 +1,334 @@
+= DocOps Audit Recommendations
+:toc: macro
+:toclevels: 2
+:kebab-link: https://www.freecodecamp.org/news/programming-naming-conventions-explained/#what-is-kebab-case
+:camel-link: https://www.freecodecamp.org/news/programming-naming-conventions-explained/#what-is-camel-case
+:snake-link: https://www.freecodecamp.org/news/programming-naming-conventions-explained/#what-is-snake-case
+
+toc::[]
+
+== Overview
+
+This is currently working document.
+The goal is to finalize a set of concrete recommendations based on the DocOps Audit Report provided by OpenDevise.
+
+== Writer tasks
+
+[#kebab-case]
+=== Standardize on kebab case
+
+All docs-related naming schemes should be in {kebab-link}[kebab case] (e.g. `i-love-kebabs.adoc`).
+Currently, a lot of file and directory names are in {camel-link}[camelCase] and {snake-link}[snake_case].
+These cases are not ideal for a number of reasons, but simply put, kebab case makes URLs and file names easier to read and easier to type.
+
+At the very minimum, every name that appears in a URL should be formatted in kebab case, including:
+
+* `.adoc` file names, as well as all other file names located in the Antora https://docs.antora.org/antora/latest/family-directories/[family directories] (`attachments`, `examples`, `images`, `pages`, and `partials`)
+** Exceptions can be made to this rule, but they must be justified.
+For example, a file in the `examples` directory may require a specific name for accuracy or testing purposes.
+
+* https://docs.antora.org/antora/latest/module-directories/[Module directory] names (including module subdirectories)
+
+* https://docs.antora.org/antora/latest/component-name-key/[Component] names
+
+* Custom https://docs.asciidoctor.org/asciidoc/latest/attributes/id/[AsciiDoc IDs] (aka custom anchor links)
+
+In addition, writers should strive to use kebab case wherever they have discretion over the naming scheme of a particular item.
+Some examples include:
+
+* Custom AsciiDoc https://docs.antora.org/antora/latest/page/define-and-modify-attributes/[attributes]
+
+* Example file names and resource names
+
+* User-defined text in example commands
+
+IMPORTANT: The kebab case requirement does not apply when making references in the documentation to literal file or property names.
+For example, the https://docs.datastax.com/en/dse/6.8/dse-dev/datastax_enterprise/config/configCassandra_yaml.html#configCassandra_yaml__cluster_name[`cluster_name`] property should use snake case in the documentation, because that's how it appears in the product.
+
+=== Fix source language syntax on code blocks
+
+There are several instances in our converted Asciidoc files where invalid languages have been specified on source blocks (code blocks).
+For example, `source,language-bash` and `source,no-highlight` are invalid.
+These should instead be `source,bash` and `source,console`, respectively.
+(All basic shell commands and console output should use `source,console`.)
+
+When an invalid language is specified, the code block not only doesn't receive highlighting, but the user is likely to be presented with inconsistent labeling between code blocks written by various writers.
+That's why it's important that we standardize on the languages that are https://github.com/PrismJS/prism/tree/gh-pages/components[supported by our syntax highlighting library].
+
+[NOTE]
+====
+EWS: A few more things need to be investigated.
+In particular, what's the current behavior of a code block when a shell prompt character is/isn't included in a code block?
+Also, in what scenarios does the copy button appear/not appear, and does the coppy button copy shell prompt characters?
+====
+
+
+=== Fix page attribute syntax
+
+When specifying a https://docs.antora.org/antora/latest/page/page-attributes/[page attribute] (also known as a _document attribute_) the https://docs.asciidoctor.org/asciidoc/latest/attributes/attribute-entries/[attribute entry] must be set in the page header (the first line after the page title).
+This means that there cannot be empty lines between the title (line that starts with `=`) and the first attribute entry.
+Otherwise, the attributes will not be applied correctly to the page.
+
+In more practical terms, the first attribute entry needs to be on Line 2, the second attribute entry on Line 3, and so on until all attributes are defined.
+Then there should be a blank line placed between the final attribute entry and the first line of page content (paragraph, section title, etc).
+
+Example:
+
+[source,asciidoc,opts=linenums]
+----
+= Page title
+:first-attribute:
+:second-attribute:
+:third-attribute:
+
+First line of page content.
+
+...
+----
+
+Writers should find and correct any instances where there are blank lines between the page title and the list of attribute entries.
+
+
+=== Stop configuring internal links to open in new windows/tabs
+
+Opening links to our own documentation in new windows/tabs is not a good reader experience.
+
+The only exceptions are external links (anything outside of docs.datastax.com) and API reference (3-panel UI).
+
+
+=== Stop using ifeval on a whole page
+
+We shouldn't be using the https://docs.asciidoctor.org/asciidoc/latest/directives/ifeval/[ifeval directive] on a whole page (such as https://github.com/riptano/astra-docs/blob/main/docs-src/astra-core/modules/manage/pages/db/manage-access-list.adoc[this page]).
+
+Instead, we should apply an `ifeval` directive around nav entries to remove them from the nav depending on the component variant.
+
+[NOTE]
+====
+EWS: I think there are other methods we could use to manage the nav should the ifevals prove to be too cumbersome.
+
+EWS: Unfortunately, using an `ifeval` to remove a page from the nav does not then remove the page from the site.
+This is a problem because the page will still be indexed by Google and Algolia.
+OpenDevise recommends that we "use an extension to remove pages that are not in the nav."
+We need to ask OpenDevise whether an existing extension can be used for this (perhaps the Gradle extension?), or whether we will need to build one ourselves.
+At first blush, this operation seems like it would require an extension of very low complexity, and perhaps could be coded in-house.
+====
+
+
+== DocOps tasks
+
+
+=== Split apart multi-product docs repos
+
+Each product's documentation should be scoped to a single Antora https://docs.antora.org/antora/latest/component-version-descriptor/[component] -- with the possible exception of Astra DB docs, which may have a unique component assigned to each of its variants (TBD).
+Each component (and its variants in the case of Astra DB) should be stored in its own individual GitHub repo.
+
+The following repos currently host multiple product documentation sets across multiple branches:
+
+* https://github.com/riptano/docs-home[docs-home]
+* https://github.com/datastax/starlight-docs[starlight-docs]
+* https://github.com/riptano/dse68-docs[dse68-docs]
+* https://github.com/datastax/dev-app-drivers[dev-app-drivers]
+* https://github.com/riptano/guide-docs[guide-docs]
+* https://github.com/riptano/tool-docs[tool-docs]
+
+The various product docsets in these repos need to be migrated to their own individual repos.
+
+
+=== Remove all instances of hard-coded product version numbers from existing docsets
+
+We shouldn't be hard-coding the product version anywhere else except in the version key in `antora.yml` (e.g. not in the site title, component version title, or pages).
+Never put a version number in a repository name, component name, or module name either.
+(See the OpsCenter docs where the version number is currently included in the https://github.com/riptano/tool-docs/blob/78e0158c6a0f77e8d3cb4b264ca7ffd6ae4419dd/docs-src/opscenter-core/antora-opscenter.yml#L2[component title].)
+
+This also applies to regular page content as well.
+If a product version number is mentioned in the content -- and the intent is for that version number to increment with each new release of the docs, then an attribute should be used instead of a static version number.
+There are some edge cases, such as release notes and compatibility notes, where it may be appropriate to use a hard-coded version number in the prose, but this should not be the norm.
+
+
+=== Apply appropriate versioning to docs
+
+Some of the product docsets (components) will need to have multiple https://docs.antora.org/antora/latest/component-version/[versions].
+For example, We have already determined that the various Streaming docs need to become versioned.
+
+We need to do the following:
+
+* Determine which other components/docsets need to become versioned.
+
+* If a component will have multiple versions, each version should be stored on a separate branch in the component's repository.
+
+[NOTE]
+====
+EWS: We need to determine a branch name prefix for component versions (e.g. `release/5.1`).
+This will allow us to programmatically assign branch protection rules to production branches, and also help production branches stand out from contributors' working branches.
+====
+
+
+=== Standardize on the `.yml` file extension
+
+All YAML files in the docs infrastructure should use the `.yml` file extension (as opposed to `.yaml`).
+This standardization was borne out of the desire to align with GitHub's standard convention, and Antora's hard naming requirement for the `antora.yml` file.
+
+[NOTE]
+====
+LLP: Need to check that redocly doesn't have any problems with `.yml` files.
+====
+
+
+=== Standardize AsciiDoc attributes
+
+AsciiDoc attributes can be defined at the site level via the Antora playbook, and at the component level via `antora.yml`  (see https://docs.antora.org/antora/latest/page/attributes/[AsciiDoc Attributes in Antora]).
+
+Currently, all our attributes are being defined at the site level.
+However, this is not ideal since we may use the same attribute in multiple components, but with different defined values (i.e. an attribute named `version` should substitute a different value in the DSE 6.8 docs than it does in the DSE 5.1 docs).
+
+We need to research and standardize a set of https://docs.antora.org/antora/latest/page/attributes/#built-in-attributes[built-in attributes] and https://docs.antora.org/antora/latest/page/attributes/#custom-attributes[custom attributes] that make sense at the site level.
+All other attributes should be https://docs.antora.org/antora/latest/component-attributes/[defined at the component level].
+
+[NOTE]
+====
+EWS: We need to define the `idprefix` and `idseparator` attributes at the site level such that auto-generated element IDs comply with our <<kebab-case,standardization on kebab case>>.
+I borrowed the following from https://github.com/couchbase/docs-site/blob/master/antora-playbook.yml[Couchbase's site playbook]:
+
+----
+    idprefix: '@'
+    idseparator: '-@'
+----
+====
+
+
+=== Ensure proper formatting of key-values in `antora.yml`
+
+* Enclose the `version` value in single quotes (`''`)
+
+
+=== Stop using the `--log-level` option in the Antora CLI
+
+We're currently building most of our docsets with the Antora log level set to `error`.
+This is undesirable because it ignores important warnings that Antora and Asciidoctor are trying to communicate, including things like undefined attributes.
+
+Antora automatically sets the log level to `warn` when left undefined, so we simply need to forgo the `--log-level` option when running Antora.
+
+Don’t set the log level to `error` since that ignores important warnings that Antora and Asciidoctor are trying to communicate.
+
+[NOTE]
+====
+LLP: Need to ask OpenDevise about which substitutions element attribute to apply to code blocks to avoid false warnings.
+====
+
+
+=== Depend on the full Antora package
+
+When setting Antora as a dependency (e.g. in `package.json`), make sure to specify the full `antora` package instead of the individual `@antora/cli` and `@antora/site- generator-default` packages.
+
+
+[#name-scheme-docs-source]
+=== Standardize the name scheme of documentation source directories
+
+Any directory from which Antora is to retrieve content from should share the same name scheme.
+By having a consistent name scheme for content directories, writers and contributors can more easily identify which directories contain content that gets built into the site.
+
+To that end, the following directory names should be enforced in all docs repos:
+
+* `docs-src` -- this directory is the Antora https://docs.antora.org/antora/latest/content-source-repositories/[content source root] and thus it is where `antora.yml` and the modules directory are stored.
+* `api-src` -- this directory is where all API docs source files for a given component are stored.
+(Currently we use the name `api` in a lot of places, so we'll need to make sure to rename those folders to `api-src`.)
+
+
+=== Remove unnecessary partitions from the docs-src directory
+
+As stated in the <<name-scheme-docs-source,previous section>>, the `docs-src` directory should contain `antora.yml` and the modules directory.
+However, we currently partition this directory with additional subdirectories such as `-core` and `-develop`.
+
+We should remove these partitions if they are not required as part of our build infrastructure.
+
+[NOTE]
+====
+LLP: Need to confirm with OpenDevise that we will have the ability to selectively pull in modules into different components.
+Otherwise we may still need to continue doing this.
+====
+
+
+=== Remove highlight.js source highlighter from playbooks (and implement Prism)
+
+Highlight.js is the default source highlighter in Antora, therefore if the intent it to use highlight.js, then there is no need to include the `source-highlighter` key in site playbooks.
+
+[NOTE]
+====
+EWS: Need to ask OpenDevise about switching to prism, and will also check Zulip for other users' experience implementing prism.
+I'll also ask Studio 31 about whether we're still bundling highlight.js.
+====
+
+
+=== Stop using the `--fetch` option with local content sources
+
+There’s no need to use the `--fetch` option in the Antora CLI when building from local content sources (i.e. not cloning content from GitHub).
+Moreover, `--fetch` should always be a runtime choice.
+
+[NOTE]
+====
+EWS: Need to ask OpenDevise to clarify what the downside is.
+Does the build fail when there is no connection to the internet?
+Context: our builds currently look for the latest UI package on GitHub, with `snapshot: true`.
+I'll have to do some testing.
+====
+
+
+=== Stop adding link text to nav entries
+
+We should no longer specify link text for entries in the `nav.adoc` file.
+In practice, this means leaving the square brackets at the end of the xref empty.
+
+[source,asciidoc]
+----
+** xref:installCqlsh.adoc[] <.>
+----
+
+<.> By not specifying link text for this entry, Antora will automatically replace it with the page’s title _Installing the CQLSH standalone tool page_.
+
+If the target of an xref macro is a page, and no link text is specified in the macro, Antora will automatically use the title of the page as the link text.
+Not only is this a quality-of-life benefit for the writer, it also eliminates the risk of nav entries falling out of sync with the title of the page.
+
+However, there it may sometimes be undesirable to print the entire page title in the left nav.
+For example, the page title may be too long, resulting in the nav entry looking unsightly and/or making it difficult to read.
+When this happens, instead of specifying shorter link text in the macro itself, we should define the link text on the page itself by setting the `navtitle` attribute in the header of the page.
+
+[source,asciidoc]
+----
+= Installing the CQLSH standalone tool
+:navtitle: Installing CQLSH <.>
+
+Install the CQLSH standalone tool using a binary tarball on any Linux-based platform to use CQLSH remotely on a DataStax database cluster.
+----
+
+<.> When `navtitle` is set on the page, Antora will use its value as the link text when an xref macro targets that page but doesn’t specify link text.
+In this case, _Installing CQLSH_ will appear in the left nav.
+
+[NOTE]
+====
+EWS: I plan to investigate a reasonable character limit recommendation for nav entries.
+====
+
+
+== Tabled items and future tasks
+
+=== Monolithic vs modular nav files
+
+Antora supports using a single, monolithic `nav.adoc` file that contains all the nav entries for given component.
+It also supports the use of multiple nav files (e.g. a nav file per module) that can each be listed in `antora.yml` file, which Antora then combines and build time to make up a single component nav.
+
+[NOTE]
+====
+LLP: We need to investigate which of these solutions best meets the needs of our unified site build.
+====
+
+
+=== Page descriptions and keywords
+
+The `description` and `keywords` page attributes can be used to help search results / SEO.
+
+[NOTE]
+====
+EWS: We need to research which of these attributes has the biggest individual impact, and then set the priority for implementing them.
+It would also probably be helpful to know whether repeating the keywords in the `description` has any benefit.
+Once we know these things, we need to develop style guidance that writers can use to apply appropriate keywords and descriptions to pages.
+====
