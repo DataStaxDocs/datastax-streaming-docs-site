@@ -2,8 +2,6 @@
 :page-layout: gcx-landing
 :data-uri:
 
-== Getting started with any of our streaming products below
-
 ++++
 <div class="landing-row">
 ++++
