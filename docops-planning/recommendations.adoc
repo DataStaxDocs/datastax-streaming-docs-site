@@ -102,10 +102,10 @@ We shouldn't be using the https://docs.asciidoctor.org/asciidoc/latest/directive
 
 Instead, we should apply an `ifeval` directive around nav entries to remove them from the nav depending on the component variant.
 
-[source, asciidoc]
+[source,asciidoc,opts=linenums]
 ----
 ifeval::["{company}" == "nothing"]
-*** xref:keyspace-concepts.adoc[Keyspace concepts]
+*** xref:keyspace-concepts.adoc[]
 endif::[]
 ----
 
