@@ -5,7 +5,9 @@
     <h3 class="title"><a href="{{{@root.site.url}}}/streaming">DataStax Streaming Home</a></h3>
     {{/if}}
     {{#with @root.page.componentVersion}}
+        {{#if (not (eq "DataStax Streaming" ./title))}}
     <h3 class="title"><a href="{{{relativize ./url}}}">{{./title}}</a></h3>
+        {{/if}}
     {{/with}}
 {{> nav-tree navigation=this}}
 
