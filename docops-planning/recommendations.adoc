@@ -104,7 +104,7 @@ Instead, we should apply an `ifeval` directive around nav entries to remove them
 
 [source,asciidoc,opts=linenums]
 ----
-ifeval::["{company}" == "nothing"]
+ifeval::["\{company\}" == "nothing"]
 *** xref:keyspace-concepts.adoc[]
 endif::[]
 ----
