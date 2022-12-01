@@ -9,7 +9,6 @@ Readme Topics:
 - [Products that make up the streaming line of business](#products-that-make-up-documentation)
 - [Getting Started](#getting-started)
 - [Goals of documentation](#goals)
-- [The flow of making revisions to documentation](#making-revisions-to-documentation)
 - [Managing redirects](#managing-redirects)
 
 ## Products that make up documentation
