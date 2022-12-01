@@ -19,7 +19,7 @@ The goal is to finalize a set of concrete recommendations based on the DocOps Au
 
 All docs-related naming schemes should be in {kebab-link}[kebab case] (e.g. `i-love-kebabs.adoc`).
 Currently, a lot of file and directory names are in {camel-link}[camelCase] and {snake-link}[snake_case].
-These cases are not ideal for a number of reasons, but simply put, kebab case makes URLs and file names easier to read and easier to type.
+The reason we should migrate to kebab case is because using hyphens "https://developers.google.com/search/docs/crawling-indexing/url-structure[helps users and search engines identify concepts in the URL more easily.]"
 
 At the very minimum, every name that appears in a URL should be formatted in kebab case, including:
 
@@ -59,7 +59,7 @@ That's why it's important that we standardize on the languages that are https://
 ====
 EWS: A few more things need to be investigated.
 In particular, what's the current behavior of a code block when a shell prompt character is/isn't included in a code block?
-Also, in what scenarios does the copy button appear/not appear, and does the coppy button copy shell prompt characters?
+Also, in what scenarios does the copy button appear/not appear, and does the copy button copy shell prompt characters?
 ====
 
 
@@ -104,9 +104,9 @@ Instead, we should apply an `ifeval` directive around nav entries to remove them
 
 [source,asciidoc,opts=linenums]
 ----
-ifeval::["\{company\}" == "nothing"]
-*** xref:keyspace-concepts.adoc[]
-endif::[]
+\ifeval::["{evalproduct}" == "DB Serverless"]
+*** xref:manage:db/manage-access-list.adoc[Manage access lists]
+\endif::[]
 ----
 
 [NOTE]
@@ -174,11 +174,6 @@ This will allow us to programmatically assign branch protection rules to product
 
 All YAML files in the docs infrastructure should use the `.yml` file extension (as opposed to `.yaml`).
 This standardization was borne out of the desire to align with GitHub's standard convention, and Antora's hard naming requirement for the `antora.yml` file.
-
-[NOTE]
-====
-LLP: Need to check that redocly doesn't have any problems with `.yml` files.
-====
 
 
 === Standardize AsciiDoc attributes
