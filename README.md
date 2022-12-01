@@ -16,7 +16,7 @@ Readme Topics:
 
 | Display Name                             | Project Repo                                                                                      | Public | Docs URL Path*                    |
 |------------------------------------------|---------------------------------------------------------------------------------------------------|--------|-----------------------------------|
-| DataStax Streaming Documentation Site    | [datastax/datastax-streaming-docs-site](https://github.com/datastax/datastax-streaming-docs-site) | Y      | /streaming                        |
+| DataStax Streaming Documentation Site    | [datastaxdocs/datastax-streaming-docs-site](https://github.com/datastaxdocs/datastax-streaming-docs-site) | Y      | /streaming                        |
 | DataStax Astra Streaming                 | [datastax/astra-streaming-docs](https://github.com/datastax/astra-streaming-docs)                 | Y      | /streaming/astra-streaming/       |
 | DataStax Luna Streaming                  | [datastax/pulsar-docs](https://github.com/datastax/pulsar-docs)                                   | Y      | /streaming/luna-streaming         |
 | Starlight for Kafka                      | [datastax/starlight-for-kafka-docs](https://github.com/datastax/starlight-for-kafka-docs)         | Y      | /streaming/starlight-for-kafka    |
@@ -113,64 +113,8 @@ Each product is considered a domain of knowledge about the functions it can run.
 
 Search engines don't like it when they index a page and then it is removed. Uses like it even less. When a page makes it to production, that path is forever taken. Either by an actual page as the canonical path or as a redirect to a canonical page. Make all possible efforts to never redirect to generic pages. Users get frustrated when they think they are being taken to a page talking about -this this feature- but are actually given a page talking about -a bunch of generic stuff this does-.
 
-## Making revisions to documentation
-
-> This assumes that the docker build system has the correct build handle (ie: bsys document) for Streaming:
-> ```yaml
-> name: datastax-streaming
-> repo: ssh://github.com/datastax/datastax-streaming-docs-site
-> folder: /en
-> playbook: antora-playbooks/antora-prod-playbook.yaml
-> ```
-
-1. Engineering releases new product version
-2. Notify docs team of new version
-3. Create new local branch in product documentation repo called `v<new-engineering-version>` based on `v<previous-version>` branch
-4. After checking out that new branch, change 'version' to be '<new-engineering-version>' in antora.yml. Note there is no "v" prefix.
-5. Develop locally on branch `v<new-engineering-version>`
-6. Once the changes are finished and the site builds locally, PR local changes into remote. Still on the `v<new-engineering-version>` branch.
-8. Open PR to merge `v<new-engineering-version>` branch changes into main branch, adding appropriate people for sign off.
-   - They can run the site locally to see the finished changes
-9. Once merged, build site within docker system
-
-    `bsys build datastax-streaming`
-
-10. Validate site in docker system
-
-    `https://localhost:8081/en/streaming/product/page.html`
-
-11. Deploy site changes in docker system to coppi
-
-    `bsys deploy datastax-streaming coppi`
-
-12. Validate site changes in coppi
-
-    `https://coppi.aws.dsinternal.org/en/streaming/product/page.html`
-
-13. Deploy to docs preview* (this is public)
-
-    `bsys -v deploy datastax-streaming preview`
-
-14. Validate site changes in public preview
-
-    `http://docs-preview.datastax.com/en/streaming/product/page.html`
-
-15. Publish public preview live
-
-    `bsys -v sync`
-
-16. Validate public site changes
-
-    `https://docs.datastax.com/en/streaming/product/page.html`
-
-*`main` branch is hard coded in this step
-
-> This is not the ideal flow at the moment. We intend to not use the main branch at all in the future, and only have versioned branches. But to comply with the docker system tooling use of the main branch is required.
-
 ## Managing redirects
 
 DataStax documentation site is running on an [Apache HTTP server](https://httpd.apache.org/). It has a [certain spec](https://httpd.apache.org/docs/current/rewrite/remapping.html) for creating redirects when a page is moved or removed. Antora has provisions to write a redirect file upon building the site that follows this spec. [Read more here](https://docs.antora.org/antora/latest/playbook/urls-redirect-facility/#httpd).
 
 The streaming site uses [Antora's page-aliases](https://docs.antora.org/antora/latest/page/page-aliases/) explicitly to represent a redirection of some kind. In turn a properly formatted .htaccess file is created and given to the server un startup. Read more about htaccess files [here](https://httpd.apache.org/docs/current/howto/htaccess.html).
-
-Using staic 301 redirects in HTML headers is considered a bad practice on the Streaming team. While sometimes inevitable, we avoid them at all costs. There is a lose of trust with search engines if your site is constantly publicly redirecting. Keeping on the server side is a much nicer way to play :). 
