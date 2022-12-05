@@ -1,7 +1,7 @@
 site:
   title: LOCAL DataStax Streaming Docs
   start_page: streaming::index.adoc
-  url: https://docs.datastax.com/en
+  url: https://docs.datastax.com/en/streaming
 
 content:
   sources:
