@@ -69,7 +69,7 @@ content:
 runtime:
   log:
     level: info
-    failure_level: error
+    failure_level: warn
 
 asciidoc:
   attributes:
