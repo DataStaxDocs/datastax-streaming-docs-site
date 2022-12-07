@@ -189,11 +189,10 @@ All other attributes should be https://docs.antora.org/antora/latest/component-a
 [NOTE]
 ====
 EWS: We need to define the `idprefix` and `idseparator` attributes at the site level such that auto-generated element IDs comply with our <<kebab-case,standardization on kebab case>>.
-I borrowed the following from https://github.com/couchbase/docs-site/blob/master/antora-playbook.yml[Couchbase's site playbook]:
 
 ----
-    idprefix: '@'
-    idseparator: '-@'
+    idprefix: ''
+    idseparator: ''
 ----
 ====
 
