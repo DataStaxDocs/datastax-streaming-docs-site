@@ -1,7 +1,7 @@
 {
     "name": "datastax-streaming",
     "scripts": {
-      "build:local": "antora --stacktrace --fetch antora-playbooks/antora-local-playbook.yaml",
+      "build:local": "antora --stacktrace antora-playbooks/antora-local-playbook.yaml",
       "build:prod": "antora --stacktrace --fetch antora-playbooks/antora-prod-playbook.yaml"
     },
     "dependencies": {
