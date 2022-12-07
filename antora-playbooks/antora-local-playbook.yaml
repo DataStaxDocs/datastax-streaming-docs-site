@@ -73,12 +73,11 @@ runtime:
 
 asciidoc:
   attributes:
-    source-highlighter: highlightjs
     page-pagination: ''
     sectanchors: ''
     sectlinks: ''
-    id-prefix: ''
-    id-separator: '-'
+    idprefix: ''
+    idseparator: '-'
 
   extensions:
     - lib/tabs-block.js
