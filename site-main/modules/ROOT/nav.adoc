@@ -1,12 +1,11 @@
-# LLP 12.06.2022 We are recommending the use of :nav-title: in files, rather than titles in [ ] here now.
 * xref:learning:pulsar-io:connectors/index.adoc[Learning Site]
 
-* xref:astra-streaming::index.adoc[Astra Streaming]
+* xref:astra-streaming::index.adoc[]
 
-* xref:luna-streaming::index.adoc[Luna Streaming]
+* xref:luna-streaming::index.adoc[]
 
-* xref:starlight-for-kafka::index.adoc[Starlight for Kafka]
+* xref:starlight-for-kafka::index.adoc[]
 
-* xref:starlight-for-rabbitmq::index.adoc[Starlight for RabbitMQ]
+* xref:starlight-for-rabbitmq::index.adoc[]
 
-* xref:starlight-for-jms::index.adoc[Starlight for JMS]
+* xref:starlight-for-jms::index.adoc[]
