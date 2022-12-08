@@ -89,7 +89,6 @@ ui:
   supplemental_files: supplemental-ui
 
 output:
-  #dir: build/site
   dir: '~/work/datastax-streaming-docs-site/build/site'
 
 urls:
