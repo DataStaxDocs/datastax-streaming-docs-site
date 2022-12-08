@@ -17,8 +17,8 @@ content:
     # LUNA STREAMING DOCUMENTATION SITE
     - url: ../pulsar-docs
       edit_url: '{web_url}/blob/{refname}/{path}'
-      branches: 
-        - v* #all versions
+      branches:
+        - release/*
       tags: 
         - streaming
         - luna-streaming
@@ -26,8 +26,8 @@ content:
     # ASTRA STREAMING DOCUMENTATION SITE
     - url: ../astra-streaming-docs
       edit_url: '{web_url}/blob/{refname}/{path}'
-      branches: 
-        - v* #all versions
+      branches:
+        - develop
       tags:
         - streaming
         - astra-streaming
@@ -45,7 +45,7 @@ content:
     - url: ../starlight-for-kafka-docs
       edit_url: '{web_url}/blob/{refname}/{path}'
       branches:
-        - v* #all versions of kafka
+        - release/*
       tags:
         - streaming
         - kafka
@@ -53,7 +53,7 @@ content:
     - url: ../starlight-for-rabbitmq-docs
       edit_url: '{web_url}/blob/{refname}/{path}'
       branches:
-        - v* #all versions of kafka
+        - release/*
       tags:
         - streaming
         - rabbitmq
@@ -61,7 +61,7 @@ content:
     - url: ../starlight-for-jms-docs
       edit_url: '{web_url}/blob/{refname}/{path}'
       branches:
-        - v* #all versions of kafka
+        - release/*
       tags:
         - streaming
         - jms

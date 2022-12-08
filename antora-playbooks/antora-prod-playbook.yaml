@@ -17,8 +17,8 @@ content:
     # LUNA STREAMING DOCUMENTATION SITE
     - url: https://github.com/datastax/pulsar-docs.git
       edit_url: '{web_url}/blob/{refname}/{path}'
-      branches: 
-        - v* #all versions
+      branches:
+        - release/*
       tags: 
         - streaming
         - luna-streaming
@@ -26,8 +26,8 @@ content:
     # ASTRA STREAMING DOCUMENTATION SITE
     - url: https://github.com/datastax/astra-streaming-docs.git
       edit_url: '{web_url}/blob/{refname}/{path}'
-      branches: 
-        - v* #all versions
+      branches:
+        - develop
       tags:
         - streaming
         - astra-streaming
@@ -45,7 +45,7 @@ content:
     - url: https://github.com/datastax/starlight-for-kafka-docs.git
       edit_url: '{web_url}/blob/{refname}/{path}'
       branches:
-        - v* #all versions of kafka
+        - release/*
       tags:
         - streaming
         - kafka
@@ -53,7 +53,7 @@ content:
     - url: https://github.com/datastax/starlight-for-rabbitmq-docs.git
       edit_url: '{web_url}/blob/{refname}/{path}'
       branches:
-        - v* #all versions of kafka
+        - release/*
       tags:
         - streaming
         - rabbitmq
@@ -61,7 +61,7 @@ content:
     - url: https://github.com/datastax/starlight-for-jms-docs.git
       edit_url: '{web_url}/blob/{refname}/{path}'
       branches:
-        - v* #all versions of kafka
+        - release/*
       tags:
         - streaming
         - jms
