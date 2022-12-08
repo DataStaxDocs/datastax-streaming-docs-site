@@ -1,4 +1,4 @@
-* xref:learning:pulsar-io:connectors/index.adoc[Learning Site]
+* xref:streaming-learning:pulsar-io:connectors/index.adoc[Learning Site]
 
 * xref:astra-streaming::index.adoc[]
 

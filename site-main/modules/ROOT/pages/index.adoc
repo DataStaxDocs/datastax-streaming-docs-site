@@ -7,13 +7,13 @@
 ++++
 
 [sidebar.landing-card]
-.xref:learning:pulsar-io:connectors/index.adoc[Learning Site]
+.xref:streaming-learning:pulsar-io:connectors/index.adoc[Learning Site]
 ****
 --
-Learn about all the amazing things you can do with all our streaming products. We've included best practices for Apache Pulsar, a full connector reference, and examples for getting the most out of Astra's CDC feature. xref:learning::index.adoc[Learn now].
+Learn about all the amazing things you can do with all our streaming products. We've included best practices for Apache Pulsar, a full connector reference, and examples for getting the most out of Astra's CDC feature. xref:streaming-learning::index.adoc[Learn now].
 --
 [.landing-card-body-icon]
-image::what-is-astra-db.svg[icon description,40,xref=learning::index.adoc]
+image::what-is-astra-db.svg[icon description,40,xref=streaming-learning::index.adoc]
 ****
 
 ++++
