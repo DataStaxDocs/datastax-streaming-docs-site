@@ -95,3 +95,6 @@ urls:
   # https://docs.antora.org/antora/latest/playbook/urls-redirect-facility/
   # https://docs.antora.org/antora/latest/page/page-aliases/
   redirect_facility: httpd
+
+  latest_version_segment_strategy: redirect:from # https://docs.antora.org/antora/latest/playbook/urls-latest-version-segment-strategy/
+  latest_version_segment: 'latest'
