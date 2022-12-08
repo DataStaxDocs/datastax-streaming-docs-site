@@ -77,7 +77,7 @@ Example:
 [source,asciidoc,opts=linenums]
 ----
 = Page title
-:first-attribute:
+:navtitle: Installing CQLSH <.>
 :second-attribute:
 :third-attribute:
 
@@ -85,6 +85,9 @@ First line of page content.
 
 ...
 ----
+
+<.> As a matter of style, whenever the `:navtitle:` attribute is used, it should always be listed as the first page attribute.
+For more information, see <<nav-entry-link-text>>.
 
 Writers should find and correct any instances where there are blank lines between the page title and the list of attribute entries.
 
@@ -265,15 +268,25 @@ I'll also ask Studio 31 about whether we're still bundling highlight.js.
 There’s no need to use the `--fetch` option in the Antora CLI when building from local content sources (i.e. not cloning content from GitHub).
 Moreover, `--fetch` should always be a runtime choice.
 
-[NOTE]
+[TIP]
 ====
-EWS: Need to ask OpenDevise to clarify what the downside is.
-Does the build fail when there is no connection to the internet?
-Context: our builds currently look for the latest UI package on GitHub, with `snapshot: true`.
-I'll have to do some testing.
+If for some reason your local build is not reflecting the changes on your local working branch, you can update Antora's https://docs.antora.org/antora/latest/cache/[cache] using the `--fetch` option at runtime.
+
+If after using the `--fetch` option your changes are still not showing up in the local build, you can try deleting Antora's https://docs.antora.org/antora/latest/playbook/runtime-cache-dir/#default[default cache directory] and then re-running the build.
+
+[source,shell]
+----
+rm -rf $HOME/Library/Caches/antora
+----
+====
+
+[IMPORTANT]
+====
+Since our builds currently look for the latest UI package on GitHub, with `snapshot: true`, if a copy of the UI bundle is not in Antora's cache, a local build will fail if your computer is not connected to the Internet.
 ====
 
 
+[#nav-entry-link-text]
 === Stop adding link text to nav entries
 
 We should no longer specify link text for entries in the `nav.adoc` file.
