@@ -123,6 +123,11 @@ We need to ask OpenDevise whether an existing extension can be used for this (pe
 At first blush, this operation seems like it would require an extension of very low complexity, and perhaps could be coded in-house.
 ====
 
+=== Don't open xrefs in a new tab/window
+
+Due to a known limitation in https://github.com/asciidoctor/asciidoctor/issues/4104[Asciidoctor] and https://gitlab.com/antora/antora/-/issues/808[Antora], specifying `^` or `window=_blank` in an xref will cause the xref to be calculated incorrectly, resulting in a 404.
+
+
 
 == DocOps tasks
 
