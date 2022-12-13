@@ -27,7 +27,7 @@ content:
     - url: ../astra-streaming-docs
       edit_url: '{web_url}/blob/{refname}/{path}'
       branches:
-        - develop
+        - new-getting-started
       tags:
         - streaming
         - astra-streaming
@@ -81,6 +81,7 @@ asciidoc:
 
   extensions:
     - lib/tabs-block.js
+    - lib/remote-include-processor.js
 
 ui:
   bundle:
