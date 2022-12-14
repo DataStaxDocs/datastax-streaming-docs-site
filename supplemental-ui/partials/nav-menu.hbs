@@ -1,0 +1,19 @@
+{{#with page.navigation}}
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    {{#if (not (eq "/streaming/index.html" @root.page.url))}}
+    <h3 class="title"><a href="{{{@root.site.url}}}/streaming">DataStax Streaming Home</a></h3>
+    {{/if}}
+    {{#with @root.page.componentVersion}}
+        {{#if (not (eq "DataStax Streaming" ./title))}}
+    <h3 class="title"><a href="{{{relativize ./url}}}">{{./title}}</a></h3>
+        {{/if}}
+    {{/with}}
+{{> nav-tree navigation=this}}
+
+
+  <gcx-schema-sample-app-gallery></gcx-schema-sample-app-gallery>
+  <gcx-schema-bottom-sidebar></gcx-schema-bottom-sidebar>
+  </nav>
+</div>
+{{/with}}

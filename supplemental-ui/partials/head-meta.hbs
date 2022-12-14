@@ -1,0 +1,128 @@
+{{!--
+This template override is for adding in search engine optimizations to the docs stremaing site. While simsple meta data is used in the header, the power comes from the used of structured data. For
+more info read https://schema.org/. Think of this structed data as a way to tech google how our company, websites, and articles (content) all come together as one product. The options within Scheka
+ are endless and it is not the intention to create a definitive definition about everypage. Instead, it's about filling in the gaps over time.
+
+The proposed hierarchy is:
+Corporation: DataStax
+   Website: DataStax.com
+   WebSite: docs.datastax.com/en/astra-serverless
+       WebPages
+            TechArticles
+   WebSite: docs.datastax.com/en/astra-streaming
+        WebPages
+            TechArticles
+
+There is a request to add in the corporation structured data to DS.com: https://datastax.jira.com/browse/ED-2568. Notice the ID of https://datastax.com#organization. This enables our other websites
+ to delcare themselves a part of that organization.
+
+Each website is broken up by it's code structure. DS.com, DB docs, and AS docs are all seperate code sets. Thus they are treated as different websites. The docs chould be one codeset,
+making it a single website.
+
+WebPage and TechArticle are broken up so each get their own @id. With this ID one can link back from other structured data like breadcrumbs without having to provide full detail every time.
+
+Only the index page of the site should have WebSite structured data but the site.isHome variable doesn't work withour current structure, so a comparison of the canonicalUrl is being done instead.
+
+All other pages in the site should have:
+:description:
+:meta-description:
+:keywords:
+:slug:
+:tags:
+
+All of this will be brought into the html meta tags and the structred data, which in turn provide google, linkedin, slack, twitter, etc etc a better more deep understanding of what the page is and
+why someone is pasting a link to it.
+--}}
+
+    <meta property="og:title" content="{{page.title}}"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="{{page.canonicalUrl}}"/>
+    <meta property="og:image" content="https://cdn.sanity.io/images/bbnkhnhl/production/c95b10a5253c84dcff927bea658ef52b9fa30295-324x142.png"/>
+    <meta property="og:description" content="{{#if page.meta-description}}{{page.meta-description}}{{else}}{{page.description}}{{/if}}"/>
+    <meta name="twitter:site" content="@datastax"/>
+    <meta name="twitter:creator" content="@datastax"/>
+    <link rel="icon" href="https://www.datastax.com/favicon.ico">
+    <script type="application/ld+json">
+    [
+    {{!-- {{commented expressions}} --}}
+    {{#if (eq "https://docs.datastax.com/en/streaming/index.html" page.canonicalUrl)}}
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": "https://docs.datastax.com#streaming",
+        "name": "DataStax Astra Streaming Documentation",
+        "url": "https://docs.datastax.com/en/streaming/",
+        "image": "https://cdn.sanity.io/images/bbnkhnhl/production/c95b10a5253c84dcff927bea658ef52b9fa30295-324x142.png",
+        "sameAs": [
+             "https://github.com/datastaxdevs/",
+             "https://twitter.com/datastaxdevs",
+             "https://datastax.medium.com/",
+             "https://www.datastax.com/products/astra-streaming"
+         ],
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://www.datastax.com/search?dataset=docs&query={search_term}",
+            "query-input": "required name=search_term"
+        },
+        "Publisher":{
+            "@type": "Corporation",
+            "@id": "https://datastax.com#organization",
+            "name": "DataStax",
+            "url": "https://datastax.com"
+        },
+        "Author":{
+            "@type": "Corporation",
+            "@id": "https://datastax.com#organization",
+            "name": "DataStax"
+        }
+    }
+    {{else}}
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": "{{page.canonicalUrl}}",
+        "name":"{{page.title}}",
+        "inLanguage":"en-US",
+        "reviewedBy":{
+            "@type": "Corporation",
+            "@id": "https://datastax.com#organization",
+            "name": "DataStax"
+        },
+        "author":{
+            "@type": "Corporation",
+            "@id": "https://datastax.com#organization",
+            "name": "DataStax"
+        },
+        "isPartOf": {
+            "@type": "WebSite",
+            "@id": "https://docs.datastax.com#streaming",
+            "name": "DataStax Astra Streaming Documentation"
+        },
+        "mainEntity":
+        {
+            "@type":"TechArticle",
+            "@id": "{{page.canonicalUrl}}#main_content",
+            "mainEntityOfPage": "true",
+            "datePublished":"{{page.localdate}}",
+            "dateModified":"{{page.docdate}}",
+            "headline": "{{page.title}}",
+            "description":"{{#if page.meta-description}}{{page.meta-description}}{{else}}{{page.description}}{{/if}}",
+            "keywords":"{{page.keywords}}",
+            "image": "https://cdn.sanity.io/images/bbnkhnhl/production/c95b10a5253c84dcff927bea658ef52b9fa30295-324x142.png",
+            "publisher":{
+                "@type": "Corporation",
+                "@id": "https://datastax.com#organization",
+                "name": "DataStax",
+                "url": "https://datastax.com"
+            },
+            "author":{
+                "@type": "Corporation",
+                "@id": "https://datastax.com#organization",
+                "name": "DataStax",
+                "url": "https://datastax.com"
+            }
+        }
+     }
+    {{/if}}
+    ]
+    </script>
