@@ -36,7 +36,7 @@ content:
     - url: ../streaming-learning-docs
       edit_url: '{web_url}/blob/{refname}/{path}'
       branches: 
-        - develop #not versioned
+        - main #not versioned
       tags: 
         - streaming
         - learning
