@@ -12,7 +12,8 @@ toc::[]
 This is currently a working document.
 The goal is to finalize a set of concrete recommendations based on the DocOps Audit Report provided by OpenDevise.
 
-. Recommendation status definitions
+=== Status definitions
+
 [cols="1,2"]
 |===
 | Status | Definition
