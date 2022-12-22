@@ -406,7 +406,7 @@ Highlight.js is the default source highlighter in Antora, therefore if the inten
 Also, after some testing, there doesn't seem to be a requirement to specify PrismJS as a source highlighter.
 Therefore, the current recommendation is to remove the `source-highlighter` key entirely.
 
-=== Don't the `--fetch` option with local content sources
+=== Don't use the `--fetch` option with local content sources
 
 Status: ✅ **FINALIZED**
 
