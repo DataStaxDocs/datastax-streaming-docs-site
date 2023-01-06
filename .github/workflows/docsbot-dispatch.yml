@@ -26,4 +26,3 @@ jobs:
             doc-name=datastaxStreaming
             npm-script="build:prod"
             deploy-server=coppi
-            doc-overrides="deployDir=streaming-site/${{ github.event.pull_request.head.ref }}"
