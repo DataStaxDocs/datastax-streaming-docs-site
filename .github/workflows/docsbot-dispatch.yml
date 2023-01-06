@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: peter-evans/slash-command-dispatch@v3.0.1
         with:
-          commands: deploy-site
+          commands: docsbot
           issue-type: pull-request
           token: ${{ secrets.DOCSBOT_DISPATCH_TOKEN }}
           repository: riptano/docsbot
@@ -26,3 +26,4 @@ jobs:
             doc-name=datastaxStreaming
             npm-script="build:prod"
             deploy-server=coppi
+            doc-overrides="deployDir=streaming-site/${{ github.event.pull_request.head.ref }}"
