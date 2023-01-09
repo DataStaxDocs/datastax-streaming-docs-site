@@ -1,12 +1,10 @@
-name: Pull request closed
-
+name: Docsbot Deploy Site
 on:
-  pull_request:
-    types: [closed]
+  issue_comment:
+    types: [created]
 
 jobs:
-  RemoveSite:
-    name: Remove site
+  dispatchCommand:
     runs-on: ubuntu-latest
     steps:
       - name: URL encode PR title
@@ -49,10 +47,22 @@ jobs:
 
           echo "title_url=$(url_encode '${{ github.event.issue.title }}')" >> $GITHUB_ENV
 
-      - uses: benc-uk/workflow-dispatch@v121
+      - uses: peter-evans/slash-command-dispatch@v3.0.1
+        if: success()
         with:
           token: ${{ secrets.DOCSBOT_DISPATCH_TOKEN }}
-          repo: riptano/docsbot
-          ref: main
-          workflow: remove-site_command.yml
-          inputs: '{"deploy-server": "coppi","deploy-dir": "streaming-docs/${{ env.title_url }}"}'
+          repository: riptano/docsbot
+          reactions: false
+          permission: write
+          issue-type: pull-request
+          allow-edits: false
+          event-type-suffix: '_command'
+          dispatch-type: workflow
+          commands: deploy-site
+          static-args: |
+            playbook-repository=datastaxdocs/datastax-streaming-docs-site
+            comment-id=${{ github.event.comment.id }}
+            npm-script="build:prod"
+            deploy-server=coppi
+            deploy-dir="streaming-docs/${{ env.title_url }}"
+            repository=${{ github.repository }}
