@@ -87,6 +87,7 @@ asciidoc:
 
   extensions:
     - lib/tabs-block.js
+    - lib/remote-include-processor.js
 
 ui:
   bundle:
