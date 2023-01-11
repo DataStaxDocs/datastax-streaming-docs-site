@@ -81,6 +81,7 @@ asciidoc:
 
   extensions:
     - lib/tabs-block.js
+    - lib/remote-include-processor.js
 
 ui:
   bundle:
@@ -89,7 +90,8 @@ ui:
   supplemental_files: supplemental-ui
 
 output:
-  dir: build/site
+  #dir: '~/work/datastax-streaming-docs-site/build/site'
+  dir: 'build/site'
 
 urls:
   # https://docs.antora.org/antora/latest/playbook/urls-redirect-facility/
