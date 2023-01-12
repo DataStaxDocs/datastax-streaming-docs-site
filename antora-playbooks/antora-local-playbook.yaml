@@ -18,7 +18,7 @@ content:
     - url: ../pulsar-docs
       edit_url: '{web_url}/blob/{refname}/{path}'
       branches:
-        - remove-old-content
+        - release/*
       tags: 
         - streaming
         - luna-streaming
