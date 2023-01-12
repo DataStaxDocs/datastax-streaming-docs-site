@@ -122,8 +122,8 @@ ui:
   supplemental_files: supplemental-ui
 
 output:
-  #dir: '~/work/datastax-streaming-docs-site/build/site'
-  dir: 'build/site'
+  dir: '~/work/datastax-streaming-docs-site/build/site'
+  #dir: 'build/site'
 
 urls:
   # https://docs.antora.org/antora/latest/playbook/urls-redirect-facility/
