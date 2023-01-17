@@ -1,0 +1,68 @@
+name: Docsbot Deploy Site
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  dispatchCommand:
+    runs-on: ubuntu-latest
+    steps:
+      - name: URL encode PR title
+        run: |
+          function url_encode() {
+            echo "$@" \
+            | sed \
+                -e 's/\(.*\)/\L\1/g' \
+                -e 's/%/%25/g' \
+                -e 's/ /-/g' \
+                -e 's/!/%21/g' \
+                -e 's/"/%22/g' \
+                -e "s/'/%27/g" \
+                -e 's/#/%23/g' \
+                -e 's/(/%28/g' \
+                -e 's/)/%29/g' \
+                -e 's/+/%2b/g' \
+                -e 's/,/%2c/g' \
+                -e 's/-/-/g' \
+                -e 's/:/%3a/g' \
+                -e 's/;/%3b/g' \
+                -e 's/?/%3f/g' \
+                -e 's/@/%40/g' \
+                -e 's/\$/%24/g' \
+                -e 's/\&/%26/g' \
+                -e 's/\*/%2a/g' \
+                -e 's/\./%2e/g' \
+                -e 's/\//%2f/g' \
+                -e 's/\[/%5b/g' \
+                -e 's/\\/%5c/g' \
+                -e 's/\]/%5d/g' \
+                -e 's/\^/%5e/g' \
+                -e 's/_/%5f/g' \
+                -e 's/`/%60/g' \
+                -e 's/{/%7b/g' \
+                -e 's/|/%7c/g' \
+                -e 's/}/%7d/g' \
+                -e 's/~/%7e/g'
+          }
+
+          echo "title_url=$(url_encode '${{ github.event.issue.title }}')" >> $GITHUB_ENV
+
+      - uses: peter-evans/slash-command-dispatch@v3.0.1
+        if: success()
+        with:
+          token: ${{ secrets.DOCSBOT_DISPATCH_TOKEN }}
+          repository: riptano/docsbot
+          reactions: false
+          permission: write
+          issue-type: pull-request
+          allow-edits: false
+          event-type-suffix: '_command'
+          dispatch-type: workflow
+          commands: deploy-site
+          static-args: |
+            playbook-repository=datastaxdocs/datastax-streaming-docs-site
+            comment-id=${{ github.event.comment.id }}
+            npm-script="build:prod"
+            deploy-server=coppi
+            deploy-dir="streaming-docs/${{ env.title_url }}"
+            repository=${{ github.repository }}
