@@ -1,6 +1,7 @@
 = DataStax Streaming Documentation
 :page-layout: gcx-landing
-:data-uri:
+:blank: {empty} +
+
 
 ++++
 <div class="landing-row">
@@ -10,10 +11,10 @@
 .xref:streaming-learning:pulsar-io:connectors/index.adoc[Streaming Learning]
 ****
 --
-Learn about all the amazing things you can do with all our streaming products. We've included best practices for Apache Pulsar, a full connector reference, and examples for getting the most out of Astra's CDC feature. xref:streaming-learning::index.adoc[Learn now].
+Learn about the amazing things you can do with all of our streaming products. We've included best practices for Apache Pulsar, a full connector reference, and examples for getting the most out of Astra's CDC feature. xref:streaming-learning::index.adoc[Learn now].
 --
 [.landing-card-body-icon]
-image::what-is-astra-db.svg[icon description,40,xref=streaming-learning::index.adoc]
+image::icons/what-is-astra-db.svg[icon description,40,xref=streaming-learning::index.adoc]
 ****
 
 ++++
@@ -23,47 +24,158 @@ image::what-is-astra-db.svg[icon description,40,xref=streaming-learning::index.a
 ++++
 <div class="landing-row">
 ++++
+
 
 [sidebar.landing-card]
 .xref:astra-streaming::index.adoc[Astra Streaming]
 ****
 --
-Delivered as a fully-managed SaaS with boundless scale, massive throughput and low latency. Astra Streaming is the simplest way to modernize your event driven architecture and turbo charge your data in motion strategy. xref:astra-streaming::index.adoc[Read more].
+Delivered as a fully-managed SaaS with boundless scale, massive throughput and low latency,
+Astra Streaming is the simplest way to modernize your event driven architecture and turbo charge your data in motion strategy.
+
+* xref:astra-streaming::index.adoc[Learn more]
+* xref:astra-streaming:getting-started:index.adoc[]
+* xref:astra-streaming:developing:clients/index.adoc[Client Applications]
 --
 [.landing-card-body-icon]
-image::create-db-now.svg[icon description,40,xref=astra-streaming::index.adoc]
+image::icons/using-the-astra-console.svg[icon description,40,xref=astra-streaming::index.adoc]
 ****
+
 
 [sidebar.landing-card]
 .xref:luna-streaming::index.adoc[Luna Streaming]
 ****
 --
-A production-ready distribution of Apache Pulsar with 24/7 expert enterprise support. xref:luna-streaming::index.adoc[Read more].
+A production-ready distribution of Apache Pulsar with 24/7 expert enterprise support. 
+
+* xref:luna-streaming::index.adoc[Learn more]
+* xref:luna-streaming:install-upgrade:quickstart-helm-installs.adoc[]
+* xref:luna-streaming:install-upgrade:quickstart-server-installs.adoc[]
 --
 [.landing-card-body-icon]
-image::what-is-astra-streaming.svg[icon description,40,xref=luna-streaming::index.adoc]
+image::icons/what-is-astra-streaming.svg[icon description,40,xref=luna-streaming::index.adoc]
 ****
+
 
 ++++
 </div>
 ++++
+
 
 ++++
 <div class="landing-row">
 ++++
 
 [sidebar.landing-card]
-.Starlight APIs
+.xref:streaming-learning:pulsar-io:connectors/index.adoc[Sink and source connectors]
 ****
 --
-xref:starlight-for-jms::index.adoc[Starlight for JMS] is the first highly compliant JMS implementation designed to run on a modern streaming platform.
+Pulsar supports many popular streaming connectors, including:
 
-xref:starlight-for-kafka::index.adoc[Starlight for Kafka] brings the native Apache Kafka protocol support to Apache Pulsar by introducing a Kafka protocol handler on Pulsar brokers.
-
-xref:starlight-for-rabbitmq::index.adoc[Starlight for RabbitMQ] acts as a proxy between your RabbitMQ application and Apache Pulsar™.
+* xref:streaming-learning:pulsar-io:connectors/sinks/elastic-search.adoc[]
+* xref:streaming-learning:pulsar-io:connectors/sinks/kafka.adoc[]
+* xref:streaming-learning:pulsar-io:connectors/sinks/snowflake.adoc[]
+* xref:streaming-learning:pulsar-io:connectors/index.adoc[...and more!]
 --
 [.landing-card-body-icon]
-image::what-is-datastax-luna.svg[Luna card icon,40]
+image::icons/connect-clients-to-astra-db.svg[icon description,40,xref=streaming-learning:pulsar-io:connectors/index.adoc]
+****
+
+
+[sidebar.landing-card]
+.xref:docs@starlight-jms::index.adoc[Starlight API integrations]
+****
+--
+Learn about the Starlight API suite for painlessly integrating existing messaging workloads.
+
+* xref:docs@starlight-jms::index.adoc[Starlight for JMS]
+* xref:docs@starlight-kafka::index.adoc[]
+* xref:docs@starlight-rabbitmq::index.adoc[]
+
+--
+[.landing-card-body-icon]
+image::icons/migrating-apps.svg[Astra DB card icon,40]
+****
+
+
+[sidebar.landing-card]
+.https://www.datastax.com/services/support[DataStax Support]
+****
+--
+Get support for DataStax streaming products.
+
+* https://www.datastax.com/services/support[Contact Support]
+--
+[.landing-card-body-icon]
+image::icons/security.svg[Astra DB card icon,40]
+****
+
+++++
+</div>
+++++
+
+== Do more with DataStax Astra
+
+++++
+<div class="landing-row">
+++++
+
+[sidebar.landing-card]
+.Astra DB
+****
+--
+DataStax Astra DB is a serverless, multi-cloud database service built on Apache Cassandra® that is optimized for real-time applications that require large data volume, low latency, and flexible data models.
+
+https://docs.datastax.com/en/astra-serverless/docs/index.html[Astra DB]
+--
+[.landing-card-body-icon]
+image::icons/what-is-astra-streaming.svg[Astra DB card icon,40]
+****
+
+
+[sidebar.landing-card]
+.Change Data Capture
+****
+--
+Change Data Capture (CDC) for Astra Streaming enables you to send data changes in real time throughout your entire ecosystem.
+With a wide range of connectors to data warehouses, messaging systems, data lakes as well as client libraries, you can send your data wherever it needs to go in real time.
+
+xref:astra-streaming:developing:astream-cdc.adoc[]
+--
+[.landing-card-body-icon]
+image::icons/migrating-apps.svg[Astra DB card icon,40]
+****
+
+[sidebar.landing-card]
+.DataStax Astra Block for Ethereum
+****
+--
+With the DataStax Astra Block for Ethereum, you can stream a set of sanitized Ethereum data sets into your Astra database in real-time.
+
+https://docs.datastax.com/en/astra-serverless/docs/block/overview.html[Astra Block for Ethereum]
+--
+[.landing-card-body-icon]
+image::icons/avoid-cloud-lockin.svg[Astra DB card icon,40]
+****
+
+++++
+</div>
+++++
+
+
+++++
+<div class="landing-row">
+++++
+
+[sidebar.landing-card]
+.Awesome Astra
+****
+--
+In addition to this Astra Streaming documentation, be sure to check out our new https://awesome-astra.github.io/docs/[Awesome-Astra, window="_blank"] site.
+It includes developer-focused tutorials and learning materials to help you quickly build great applications.
+Awesome-Astra also provides a rich set of external tools to connect your apps to Astra Streaming data, and "Try It!" features within the product's API docs.
+Get a jump on your learning and start coding today!
+--
 ****
 
 ++++
