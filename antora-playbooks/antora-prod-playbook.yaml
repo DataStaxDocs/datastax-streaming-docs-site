@@ -16,7 +16,7 @@ content:
       edit_url: '{web_url}/blob/{refname}/{path}'
       start_path: site-main
       branches: 
-        - new-landing-page
+        - main #not versioned
       tags: 
         - streaming
 
