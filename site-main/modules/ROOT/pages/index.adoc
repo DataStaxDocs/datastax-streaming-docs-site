@@ -94,7 +94,7 @@ Learn about the Starlight API suite for painlessly integrating existing messagin
 
 --
 [.landing-card-body-icon]
-image::icons/connect-clients-to-astra-db.svg[Astra DB card icon,40]
+image::icons/migrating-apps.svg[Astra DB card icon,40]
 ****
 
 
