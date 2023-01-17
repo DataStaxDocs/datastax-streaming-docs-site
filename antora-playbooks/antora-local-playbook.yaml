@@ -27,7 +27,7 @@ content:
     - url: ../astra-streaming-docs
       edit_url: '{web_url}/blob/{refname}/{path}'
       branches:
-        - DOC-3530-landing-page #not versioned
+        - main #not versioned
       tags:
         - streaming
         - astra-streaming

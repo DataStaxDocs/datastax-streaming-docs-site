@@ -34,8 +34,8 @@ Delivered as a fully-managed SaaS with boundless scale, massive throughput and l
 Astra Streaming is the simplest way to modernize your event driven architecture and turbo charge your data in motion strategy.
 
 * xref:astra-streaming::index.adoc[Learn more]
-* xref:astra-streaming:getting-started:astream-quick-start.adoc[]
-* xref:astra-streaming::astream-code-examples.adoc[]
+* xref:astra-streaming:getting-started:index.adoc[]
+* xref:astra-streaming:developing:clients/index.adoc[Client Applications]
 --
 [.landing-card-body-icon]
 image::icons/using-the-astra-console.svg[icon description,40,xref=astra-streaming::index.adoc]
