@@ -9,9 +9,9 @@ content:
     - url: ../datastax-streaming-docs-site
       edit_url: '{web_url}/blob/{refname}/{path}'
       start_path: site-main
-      branches: 
+      branches:
         - main #not versioned
-      tags: 
+      tags:
         - streaming
 
     # LUNA STREAMING DOCUMENTATION SITE
@@ -19,7 +19,7 @@ content:
       edit_url: '{web_url}/blob/{refname}/{path}'
       branches:
         - release/*
-      tags: 
+      tags:
         - streaming
         - luna-streaming
 
@@ -31,13 +31,13 @@ content:
       tags:
         - streaming
         - astra-streaming
-    
+
     # PULSAR LEARNING SITE
     - url: ../streaming-learning-docs
       edit_url: '{web_url}/blob/{refname}/{path}'
-      branches: 
+      branches:
         - main #not versioned
-      tags: 
+      tags:
         - streaming
         - learning
 
@@ -82,6 +82,8 @@ asciidoc:
     product_name: 'Astra Streaming'
     astra_db: 'Astra DB'
     astra_stream: 'Astra Streaming'
+    astra_cli: 'Astra CLI'
+    company: 'DataStax'
     kafka_for_astra: 'Starlight for Kafka'
     starlight_rabbitmq: 'Starlight for RabbitMQ'
     pulsar_version: '2.10' #DO NOT INCLUDE PATCH VERSION <MAJOR>.<MINOR>.<PATCH>
