@@ -54,7 +54,7 @@ jobs:
           repository: riptano/docsbot
           reactions: false
           permission: write
-          issue-type: pull-request
+          issue-type: both
           allow-edits: false
           event-type-suffix: '_command'
           dispatch-type: workflow
