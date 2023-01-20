@@ -60,7 +60,6 @@ jobs:
           dispatch-type: workflow
           commands: remove-site
           static-args: |
-            playbook-repository=datastaxdocs/datastax-streaming-docs-site
             comment-id=${{ github.event.comment.id }}
             deploy-server=coppi
             deploy-dir="streaming-docs/${{ env.title_url }}"
