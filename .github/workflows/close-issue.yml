@@ -1,15 +1,17 @@
-name: Pull request closed
+name: Issue closed or deleted
 
 on:
-  pull_request:
-    types: [closed]
+  issues:
+    types:
+      - closed
+      - deleted
 
 jobs:
   RemoveSite:
     name: Remove site
     runs-on: ubuntu-latest
     steps:
-      - name: URL encode PR title
+      - name: URL encode title
         run: |
           function url_encode() {
             echo "$@" \
