@@ -99,6 +99,7 @@ asciidoc:
     topic_name: 'blah'
     request_feature_access_email: 'astrastreaming@datastax.com'
     astra-streaming-examples-repo: 'https://raw.githubusercontent.com/datastax/astra-streaming-examples/master'
+    luna-streaming-examples-repo: 'https://raw.githubusercontent.com/datastaxdevs/luna-streaming-examples/main'
     external-link-icon: '&#x2197;'
     streaming_signup_url: 'https://astra.datastax.com/streaming'
     login_url: 'https://astra.datastax.com'
