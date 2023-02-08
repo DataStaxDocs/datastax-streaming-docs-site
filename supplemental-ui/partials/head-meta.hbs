@@ -33,12 +33,12 @@ All other pages in the site should have:
 All of this will be brought into the html meta tags and the structred data, which in turn provide google, linkedin, slack, twitter, etc etc a better more deep understanding of what the page is and
 why someone is pasting a link to it.
 --}}
-
+    <title></title>
     <meta property="og:title" content="{{page.title}}"/>
     <meta property="og:type" content="website"/>
     <meta property="og:url" content="{{page.canonicalUrl}}"/>
     <meta property="og:image" content="https://cdn.sanity.io/images/bbnkhnhl/production/c95b10a5253c84dcff927bea658ef52b9fa30295-324x142.png"/>
-    <meta property="og:description" content="{{#if page.meta-description}}{{page.meta-description}}{{else}}{{page.description}}{{/if}}"/>
+    <meta property="og:description" content="{{#if page.meta-description}}{{page.meta-description}}{{else}}{{Apache Pulsar is a cloud-native messaging and event streaming platform. DataStax offers fully managed Pulsar clusters with Astra Streaming, enhanced open-source Luna Streaming, and the Starlight suite of client APIs for connecting Pulsar to Kafka, RabbitMQ, and JMS.}}{{/if}}"/>
     <meta name="twitter:site" content="@datastax"/>
     <meta name="twitter:creator" content="@datastax"/>
     <link rel="icon" href="https://www.datastax.com/favicon.ico">
