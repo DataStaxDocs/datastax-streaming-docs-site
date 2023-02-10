@@ -33,19 +33,40 @@ All other pages in the site should have:
 All of this will be brought into the html meta tags and the structred data, which in turn provide google, linkedin, slack, twitter, etc etc a better more deep understanding of what the page is and
 why someone is pasting a link to it.
 --}}
+    <link rel="icon" href="https://www.datastax.com/favicon.ico">
     <meta property="og:title" content="{{page.title}}"/>
-    <meta property="og:description" content="Apache Pulsar is a cloud-native messaging and event streaming platform. DataStax offers fully managed Pulsar clusters with Astra Streaming, an enhanced open-source Pulsar distribution with Luna Streaming, and the Starlight suite of client APIs for connecting Pulsar to Kafka, RabbitMQ, and JMS.">
-    <meta property="og:type" content="website"/>
+    <meta property="og:description" content="DataStax streaming documentation offers learning about real-time data processing using Apache Pulsar, product information about the Astra Streaming platform and Starlight suite of APIs, and guides to help you get started quickly.">
     <meta property="og:url" content="{{page.canonicalUrl}}"/>
-    <meta property="og:image" content="https://cdn.sanity.io/images/bbnkhnhl/production/c95b10a5253c84dcff927bea658ef52b9fa30295-324x142.png"/>
+    <meta property="og:type" content="article"/>
     <meta property="og:site_name" content="DataStax Streaming Documentation"/>
+    <meta property="article:published_time" content="{{page.localdate}}"/>
+    <meta property="article:modified_time" content="{{page.docdate}}"/>
+    <meta property="article:author" content="DataStax"/>
+    <meta property="article:section" content="Streaming"/>
+    <meta property="article:tag" content="streaming"/>
+    <meta property="article:tag" content="apache pulsar"/>
+    <meta property="article:tag" content="real-time"/>
+    <meta property="article:tag" content="datastax astra"/>
+    {{!-- LI Optimal (default info) --}}
+    <meta property="og:image" content="https://docs.datastax.com/en/streaming/streaming/_images/docs_1200x627.png"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="627" />
+    <meta property="og:image:alt" content="DataStax Documentation"/>
+    {{!-- FB Optimal --}}
+    <meta property="og:image" content="https://docs.datastax.com/en/streaming/streaming/_images/docs_1200x630.png"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="DataStax Documentation"/>
+    {{!-- Twitter Optimal --}}
+    <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:site" content="@datastax"/>
     <meta name="twitter:creator" content="@datastax"/>
-    <link rel="icon" href="https://www.datastax.com/favicon.ico">
-    <meta name="twitter-card" content="summary_large_image"/>
-    <meta name="twitter:image" content="https://cdn.sanity.io/images/bbnkhnhl/production/c95b10a5253c84dcff927bea658ef52b9fa30295-324x142.png"/>
-    <meta name="twitter:title" content="Documentation"/>
-    <meta name="twitter:description" content="Apache Pulsar is a cloud-native messaging and event streaming platform. DataStax offers fully managed Pulsar clusters with Astra Streaming, an enhanced open-source Pulsar distribution with Luna Streaming, and the Starlight suite of client APIs for connecting Pulsar to Kafka, RabbitMQ, and JMS.
+    <meta name="twitter:image" content="https://docs.datastax.com/en/streaming/streaming/_images/docs_1200x627.png"/>
+    <meta name="twitter:title" content="DataStax Streaming Documentation"/>
+    <meta name="twitter:description" content="DataStax streaming documentation offers learning about real-time data processing using Apache Pulsar, product information about the Astra Streaming platform and Starlight suite of APIs, and guides to help you get started quickly."/>
+
     <script type="application/ld+json">
     [
     {{!-- {{commented expressions}} --}}
@@ -79,7 +100,7 @@ why someone is pasting a link to it.
             "@id": "https://datastax.com#organization",
             "name": "DataStax"
         }
-    }
+    },
     {{else}}
     {
         "@context": "https://schema.org",
