@@ -63,8 +63,7 @@ content:
     - url: https://github.com/datastax/starlight-for-kafka-docs.git
       edit_url: '{web_url}/blob/{refname}/{path}'
       branches:
-        - update-oauth
-        #- release/*
+        - release/*
       tags:
         - streaming
         - kafka
