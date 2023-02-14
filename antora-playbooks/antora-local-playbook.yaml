@@ -57,7 +57,8 @@ content:
     - url: ../starlight-for-kafka-docs
       edit_url: '{web_url}/blob/{refname}/{path}'
       branches:
-        - release/*
+        - update-oauth
+        #- release/*
       tags:
         - streaming
         - kafka
