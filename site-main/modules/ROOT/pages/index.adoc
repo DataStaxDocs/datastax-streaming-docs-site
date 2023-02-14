@@ -83,14 +83,14 @@ image::icons/connect-clients-to-astra-db.svg[icon description,40,xref=streaming-
 
 
 [sidebar.landing-card]
-.xref:starlight-jms::index.adoc[Starlight API integrations]
+.xref:starlight-for-jms::index.adoc[Starlight API integrations]
 ****
 --
 Learn about the Starlight API suite for painlessly integrating existing messaging workloads.
 
-* xref:starlight-jms::index.adoc[Starlight for JMS]
-* xref:starlight-kafka::index.adoc[]
-* xref:starlight-rabbitmq::index.adoc[]
+* xref:starlight-for-jms::index.adoc[Starlight for JMS]
+* xref:starlight-for-kafka::index.adoc[]
+* xref:starlight-for-rabbitmq::index.adoc[]
 
 --
 [.landing-card-body-icon]
