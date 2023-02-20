@@ -4,8 +4,8 @@ site:
   url: https://docs.datastax.com/en/streaming
 
 output:
-  dir: '~/work/datastax-streaming-docs-site/build/site'
-  #dir: 'build/site'
+  #dir: '~/work/datastax-streaming-docs-site/build/site'
+  dir: 'build/site'
 
 urls:
   # https://docs.antora.org/antora/latest/playbook/urls-redirect-facility/
@@ -39,7 +39,7 @@ content:
     - url: ../astra-streaming-docs
       edit_url: '{web_url}/blob/{refname}/{path}'
       branches:
-        - main #not versioned
+        - onboarding-faq
       tags:
         - streaming
         - astra-streaming

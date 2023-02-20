@@ -45,7 +45,7 @@ content:
     - url: https://github.com/datastax/astra-streaming-docs.git
       edit_url: '{web_url}/blob/{refname}/{path}'
       branches:
-        - main #not versioned
+        - onboarding-faq
       tags:
         - streaming
         - astra-streaming
