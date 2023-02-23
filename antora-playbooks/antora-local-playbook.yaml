@@ -39,7 +39,7 @@ content:
     - url: ../astra-streaming-docs
       edit_url: '{web_url}/blob/{refname}/{path}'
       branches:
-        - main
+        - main #not versioned
       tags:
         - streaming
         - astra-streaming
