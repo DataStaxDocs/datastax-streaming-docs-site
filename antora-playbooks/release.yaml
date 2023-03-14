@@ -1,82 +1,65 @@
 site:
-  title: LOCAL DataStax Streaming Docs
+  title: DataStax Streaming Docs
   start_page: streaming::index.adoc
   url: https://docs.datastax.com/en/streaming
+  # The keys.segmentIo site key must be in the site-publish playbook of each
+  # docset. This loads Segment into the docset build, and is a requirement for
+  # collecting site analytics.
+  keys:
+    segmentIo: 'd24gQtyKIUu5mLdkp11xjfiXLhRqx0HH'
+    googleAnalytics: 'UA-20879577-1'
 
 output:
-  dir: '~/work/datastax-streaming-docs-site/build/site'
-  #dir: 'build/site'
+  #dir: '~/work/datastax-streaming-docs-site/build/site'
+  dir: 'build/site'
+  clean: true
 
 urls:
-  # https://docs.antora.org/antora/latest/playbook/urls-redirect-facility/
-  # https://docs.antora.org/antora/latest/page/page-aliases/
   redirect_facility: httpd
-
-  latest_version_segment_strategy: redirect:from # https://docs.antora.org/antora/latest/playbook/urls-latest-version-segment-strategy/
+  latest_version_segment_strategy: redirect:from
   latest_version_segment: 'latest'
 
 content:
+  branches: main #use the currently checked out branch, if not specified
   sources:
     # DATASTAX STREAMING DOCUMENTATION MAIN PAGE
-    - url: ../datastax-streaming-docs-site
+    - url: https://github.com/datastaxdocs/datastax-streaming-docs-site.git
       edit_url: '{web_url}/blob/{refname}/{path}'
       start_path: site-main
-      branches:
-        - main #not versioned
-      tags:
-        - streaming
 
     # LUNA STREAMING DOCUMENTATION SITE
-    - url: ../pulsar-docs
+    - url: https://github.com/datastax/pulsar-docs.git
       edit_url: '{web_url}/blob/{refname}/{path}'
-      branches:
-        - release/*
-      tags:
-        - streaming
-        - luna-streaming
+      branches: 'release/{0..99}.{0..99}_{0..99}.x'
+      version:
+        release/({0..99}).({0..99})_({0..99}).x: '$1.$3-$5.x'
 
     # ASTRA STREAMING DOCUMENTATION SITE
-    - url: ../astra-streaming-docs
+    - url: https://github.com/datastax/astra-streaming-docs.git
       edit_url: '{web_url}/blob/{refname}/{path}'
-      branches:
-        - main #not versioned
-      tags:
-        - streaming
-        - astra-streaming
 
     # PULSAR LEARNING SITE
-    - url: ../streaming-learning-docs
+    - url: https://github.com/datastax/streaming-learning-docs.git
       edit_url: '{web_url}/blob/{refname}/{path}'
-      branches:
-        - main #not versioned
-      tags:
-        - streaming
-        - learning
 
     # STARLIGHT SITE
-    - url: ../starlight-for-kafka-docs
+    - url: https://github.com/datastax/starlight-for-kafka-docs.git
       edit_url: '{web_url}/blob/{refname}/{path}'
-      branches:
-        - release/*
-      tags:
-        - streaming
-        - kafka
+      branches: 'release/{0..99}.{0..99}.{0..99}.x'
+      version:
+        release/(*): '$1'
 
-    - url: ../starlight-for-rabbitmq-docs
+    - url: https://github.com/datastax/starlight-for-rabbitmq-docs.git
       edit_url: '{web_url}/blob/{refname}/{path}'
-      branches:
-        - release/*
-      tags:
-        - streaming
-        - rabbitmq
+      branches: 'release/{0..99}.{0..99}.{0..99}.x'
+      version:
+        release/(*): '$1'
 
-    - url: ../starlight-for-jms-docs
+    - url: https://github.com/datastax/starlight-for-jms-docs.git
       edit_url: '{web_url}/blob/{refname}/{path}'
-      branches:
-        - release/*
-      tags:
-        - streaming
-        - jms
+      branches: 'release/{0..99}.{0..99}'
+      version:
+        release/(*): '$1'
 
 runtime:
   log:
