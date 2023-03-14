@@ -1,0 +1,114 @@
+site:
+  title: DataStax Streaming Docs
+  start_page: streaming::index.adoc
+  url: https://docs.datastax.com/en/streaming
+  # The keys.segmentIo site key must be in the site-publish playbook of each
+  # docset. This loads Segment into the docset build, and is a requirement for
+  # collecting site analytics.
+  keys:
+    segmentIo: 'd24gQtyKIUu5mLdkp11xjfiXLhRqx0HH'
+    googleAnalytics: 'UA-20879577-1'
+
+output:
+  #dir: '~/work/datastax-streaming-docs-site/build/site'
+  dir: 'build/site'
+  clean: true
+
+urls:
+  redirect_facility: httpd
+  latest_version_segment_strategy: redirect:from
+  latest_version_segment: 'latest'
+
+content:
+  branches: stage #use the currently checked out branch, if not specified
+  sources:
+    # DATASTAX STREAMING DOCUMENTATION MAIN PAGE
+    - url: https://github.com/datastaxdocs/datastax-streaming-docs-site.git
+      edit_url: '{web_url}/blob/{refname}/{path}'
+      start_path: site-main
+
+    # LUNA STREAMING DOCUMENTATION SITE
+    - url: https://github.com/datastax/pulsar-docs.git
+      edit_url: '{web_url}/blob/{refname}/{path}'
+      branches: 'stage/{0..99}.{0..99}_{0..99}.x'
+      version:
+        stage/({0..99}).({0..99})_({0..99}).x: '$1.$3-$5.x'
+
+    # ASTRA STREAMING DOCUMENTATION SITE
+    - url: https://github.com/datastax/astra-streaming-docs.git
+      edit_url: '{web_url}/blob/{refname}/{path}'
+
+    # PULSAR LEARNING SITE
+    - url: https://github.com/datastax/streaming-learning-docs.git
+      edit_url: '{web_url}/blob/{refname}/{path}'
+
+    # STARLIGHT SITE
+    - url: https://github.com/datastax/starlight-for-kafka-docs.git
+      edit_url: '{web_url}/blob/{refname}/{path}'
+      branches: 'stage/{0..99}.{0..99}.{0..99}.x'
+      version:
+        stage/(*): '$1'
+
+    - url: https://github.com/datastax/starlight-for-rabbitmq-docs.git
+      edit_url: '{web_url}/blob/{refname}/{path}'
+      branches: 'stage/{0..99}.{0..99}.{0..99}.x'
+      version:
+        stage/(*): '$1'
+
+    - url: https://github.com/datastax/starlight-for-jms-docs.git
+      edit_url: '{web_url}/blob/{refname}/{path}'
+      branches: 'stage/{0..99}.{0..99}'
+      version:
+        stage/(*): '$1'
+
+runtime:
+  log:
+    level: info
+    failure_level: warn
+
+ui:
+  bundle:
+    url: https://github.com/riptano/antora-ui-docs/releases/latest/download/ui-bundle.zip
+    snapshot: true
+  supplemental_files: supplemental-ui
+
+asciidoc:
+  attributes:
+    page-pagination: ''
+    sectanchors: ''
+    sectlinks: ''
+    idprefix: ''
+    idseparator: '-'
+    allow-uri-read: '' # this has no effect in antora, but does help development in Intellij
+    product_name: 'Astra Streaming'
+    astra_db: 'Astra DB'
+    astra_stream: 'Astra Streaming'
+    astra_cli: 'Astra CLI'
+    company: 'DataStax'
+    kafka_for_astra: 'Starlight for Kafka'
+    starlight_rabbitmq: 'Starlight for RabbitMQ'
+    pulsar_version: '2.10' #DO NOT INCLUDE PATCH VERSION <MAJOR>.<MINOR>.<PATCH>
+    pulsar_full_version: '2.10.1'
+    astra_ui: 'Astra Portal'
+    bearer_token_value: '<replace-me>'
+    base_url: 'https://api.astra.datastax.com'
+    base_api: '/v2/streaming'
+    bearer_token: '$BEARER_TOKEN'
+    tenant_name_with_topics: 'llp-test'
+    cluster_name: 'astradev-aws'
+    tenant_name: 'testcreate'
+    topic_name: 'blah'
+    request_feature_access_email: 'astrastreaming@datastax.com'
+    astra-streaming-examples-repo: 'https://raw.githubusercontent.com/datastax/astra-streaming-examples/master'
+    luna-streaming-examples-repo: 'https://raw.githubusercontent.com/datastaxdevs/luna-streaming-examples/main'
+    external-link-icon: '&#x2197;'
+    streaming_signup_url: 'https://astra.datastax.com/streaming'
+    login_url: 'https://astra.datastax.com'
+
+    emoji-tada: "&#127881;"
+    emoji-rocket: "&#128640;"
+    emoji-smile: "&#128512"
+
+  extensions:
+    - lib/tabs-block.js
+    - lib/remote-include-processor.js
