@@ -12,77 +12,54 @@ site:
 output:
   #dir: '~/work/datastax-streaming-docs-site/build/site'
   dir: 'build/site'
+  clean: true
 
 urls:
-  # https://docs.antora.org/antora/latest/playbook/urls-redirect-facility/
-  # https://docs.antora.org/antora/latest/page/page-aliases/
   redirect_facility: httpd
-
-  latest_version_segment_strategy: redirect:from # https://docs.antora.org/antora/latest/playbook/urls-latest-version-segment-strategy/
+  latest_version_segment_strategy: redirect:from
   latest_version_segment: 'latest'
 
 content:
+  branches: stage #use the currently checked out branch, if not specified
   sources:
     # DATASTAX STREAMING DOCUMENTATION MAIN PAGE
     - url: https://github.com/datastaxdocs/datastax-streaming-docs-site.git
       edit_url: '{web_url}/blob/{refname}/{path}'
       start_path: site-main
-      branches:
-        - main #not versioned
-      tags:
-        - streaming
 
     # LUNA STREAMING DOCUMENTATION SITE
     - url: https://github.com/datastax/pulsar-docs.git
       edit_url: '{web_url}/blob/{refname}/{path}'
-      branches:
-        - release/*
-      tags:
-        - streaming
-        - luna-streaming
+      branches: 'stage/{0..99}.{0..99}_{0..99}.x'
+      version:
+        stage/({0..99}).({0..99})_({0..99}).x: '$1.$3-$5.x'
 
     # ASTRA STREAMING DOCUMENTATION SITE
     - url: https://github.com/datastax/astra-streaming-docs.git
       edit_url: '{web_url}/blob/{refname}/{path}'
-      branches:
-        - main #not versioned
-      tags:
-        - streaming
-        - astra-streaming
 
     # PULSAR LEARNING SITE
     - url: https://github.com/datastax/streaming-learning-docs.git
       edit_url: '{web_url}/blob/{refname}/{path}'
-      branches:
-        - main #not versioned
-      tags:
-        - streaming
-        - learning
 
     # STARLIGHT SITE
     - url: https://github.com/datastax/starlight-for-kafka-docs.git
       edit_url: '{web_url}/blob/{refname}/{path}'
-      branches:
-        - release/*
-      tags:
-        - streaming
-        - kafka
+      branches: 'stage/{0..99}.{0..99}.{0..99}.x'
+      version:
+        stage/(*): '$1'
 
     - url: https://github.com/datastax/starlight-for-rabbitmq-docs.git
       edit_url: '{web_url}/blob/{refname}/{path}'
-      branches:
-        - release/*
-      tags:
-        - streaming
-        - rabbitmq
+      branches: 'stage/{0..99}.{0..99}.{0..99}.x'
+      version:
+        stage/(*): '$1'
 
     - url: https://github.com/datastax/starlight-for-jms-docs.git
       edit_url: '{web_url}/blob/{refname}/{path}'
-      branches:
-        - release/*
-      tags:
-        - streaming
-        - jms
+      branches: 'stage/{0..99}.{0..99}'
+      version:
+        stage/(*): '$1'
 
 runtime:
   log:
