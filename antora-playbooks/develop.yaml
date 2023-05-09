@@ -58,7 +58,7 @@ content:
     # OP SITE
     - url: ../pulsar-operator-docs
       edit_url: '{web_url}/blob/{refname}/{path}'
-      branches: content #use 'develop/{0..99}.{0..99}.{0..99}.x' when ready
+      branches: main #use 'develop/{0..99}.{0..99}.{0..99}.x' when ready
       version:
         develop/(*): '$1'
 
