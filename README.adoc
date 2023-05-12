@@ -1,9 +1,9 @@
 = DataStax Streaming Documentation Site
 :toc: macro
-:toc-title: Readme Topics
+:toc-title: Readme Topics:
 :toclevels: 1
 
-As a line of business at DataStax, streaming represents multiple products.
+As a line of business at DataStax, Streaming represents multiple products.
 Each product may or may not have versioning.
 Each may or may not be open sourced.
 Antora is a great fit for such a dynamic environment and the Streaming docs team utilizes its features extensively.
@@ -12,15 +12,6 @@ To continue into Streaming Documentation it is assumed that you have a solid und
 https://docs.antora.org/antora/latest/how-antora-works/[Start here] if you don't.
 
 toc::[]
-
-////
-Readme Topics:
-
-* <<products-that-make-up-documentation,Products that make up the streaming line of business>>
-* <<getting-started,Getting Started>>
-* <<goals,Goals of documentation>>
-* <<managing-redirects,Managing redirects>>
-////
 
 == Products that make up Streaming documentation
 
@@ -94,13 +85,13 @@ Documentation site for the JMS API in the Starlight suite.
 
 === DataStax Streaming Leaning Site
 
-A learning site covering topics that span multiple streaming products, or talk about Apache Pulsar concepts.
+A learning site covering topics that span multiple Streaming products, or talk about Apache Pulsar concepts.
 
 == Getting started
 
 It is assumed that you have a good understanding of how Antora works.
 You'll need that knowledge to understand why things have been arranged in a certain way.
-The following steps will get your local environment ready to edit and compile the different DataStax streaming documentation areas.
+The following steps will get your local environment ready to edit and compile the different DataStax Streaming documentation areas.
 
 . Create a local folder that will hold each documentation area.
 +
@@ -185,7 +176,7 @@ cd ../
 antora --fetch --clean ./datastax-streaming-docs-site/antora-playbooks/antora-local-playbook.yaml
 ----
 
-. If built correctly you should have a new `_build` folder that holds the compiled streaming documentation site.
+. If built correctly you should have a new `_build` folder that holds the compiled Streaming documentation site.
 
 . Open the parent `datastax-streaming-site` folder in your editor of choice.
 It's not recommended to open each site's folder individually (i.e. `code ./`).
@@ -196,7 +187,7 @@ It's not recommended to open each site's folder individually (i.e. `code ./`).
 
 The purpose if using Antora is to combine each product's documentation into one complete site.
 To do so means that configurations should be clearly defined with little interpretation.
-TO achieve this the team takes an imperative approach.
+To achieve this the team takes an imperative approach.
 The playbooks are the source of truth.
 The command to build the site is simplistic by design.
 It is not recommended to override playbook settings with command line options.
@@ -219,11 +210,11 @@ Users get frustrated when they think they are being taken to a page talking abou
 
 == Managing redirects
 
-DataStax documentation site is running on an https://httpd.apache.org/[Apache HTTP server].
+The DataStax documentation site is running on an https://httpd.apache.org/[Apache HTTP server].
 It has a https://httpd.apache.org/docs/current/rewrite/remapping.html[certain spec] for creating redirects when a page is moved or removed.
 Antora has provisions to write a redirect file upon building the site that follows this spec.
 https://docs.antora.org/antora/latest/playbook/urls-redirect-facility/#httpd[Read more here].
 
-The streaming site uses https://docs.antora.org/antora/latest/page/page-aliases/[Antora's page-aliases] explicitly to represent a redirection of some kind.
+The Streaming site uses https://docs.antora.org/antora/latest/page/page-aliases/[Antora's page-aliases] explicitly to represent a redirection of some kind.
 In turn a properly formatted .htaccess file is created and given to the server un startup.
 Read more about htaccess files https://httpd.apache.org/docs/current/howto/htaccess.html[here].
