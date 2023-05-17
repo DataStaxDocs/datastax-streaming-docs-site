@@ -4,6 +4,20 @@
 
 
 ++++
+<div class="dsHeroBlock" data-banner="astra">
+++++
+
+[.hero.title]
+Data streaming and event stream processing
+
+[.hero.content]
+With Streaming-as-a-Service (SaaS), supported open-source Pulsar streaming, sinks and connectors, and Starlight API integrations, you can create Pulsar instances, manage their clusters, scale across cloud regions, and manage Pulsar resources.
+
+++++
+</div>
+++++
+
+++++
 <div class="landing-row">
 ++++
 
