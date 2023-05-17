@@ -98,6 +98,7 @@ asciidoc:
     external-link-icon: '&#x2197;'
     streaming_signup_url: 'https://astra.datastax.com/streaming'
     login_url: 'https://astra.datastax.com'
+    support_url: 'https://support.datastax.com'
 
     emoji-tada: "&#127881;"
     emoji-rocket: "&#128640;"

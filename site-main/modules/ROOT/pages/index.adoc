@@ -60,7 +60,7 @@ image::icons/using-the-astra-console.svg[icon description,40,xref=astra-streamin
 .xref:luna-streaming::index.adoc[Luna Streaming]
 ****
 --
-A production-ready distribution of Apache Pulsar with 24/7 expert enterprise support. 
+A production-ready distribution of Apache Pulsar with 24/7 expert enterprise support.
 
 * xref:luna-streaming::index.adoc[Learn more]
 * xref:luna-streaming:install-upgrade:quickstart-helm-installs.adoc[]
@@ -113,12 +113,12 @@ image::icons/migrating-apps.svg[Astra DB card icon,40]
 
 
 [sidebar.landing-card]
-.https://www.datastax.com/services/support[DataStax Support]
+.{support_url}[DataStax Support]
 ****
 --
 Get support for DataStax streaming products.
 
-* https://www.datastax.com/services/support[Contact Support]
+* {support_url}[Contact Support]
 --
 [.landing-card-body-icon]
 image::icons/security.svg[Astra DB card icon,40]
