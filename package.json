@@ -1,23 +1,12 @@
 {
     "name": "datastax-streaming",
     "scripts": {
-      "build:develop": "antora --stacktrace --fetch antora-playbooks/develop.yaml",
-      "build:stage": "antora --stacktrace --fetch antora-playbooks/stage.yaml",
-      "build:release": "antora --stacktrace --fetch antora-playbooks/release.yaml"
+        "build:develop": "antora --stacktrace --fetch --to-dir 'build/site' antora-playbooks/develop.yaml",
+        "build:stage": "antora --stacktrace --fetch --to-dir 'build/site' antora-playbooks/stage.yaml",
+        "build:release": "antora --stacktrace --fetch --to-dir 'build/site' antora-playbooks/release.yaml"
     },
     "dependencies": {
-        "@antora/cli": "~3.0.1",
-        "@antora/site-generator-default": "~3.0.1",
-        "@redocly/cli": "1.0.0-beta.102",
-        "antora": "^3.1.1",
-        "async": "~3.2.4",
-        "linkinator": "~3.0.3",
-        "mobx": "~6.0.4",
-        "react": "~16.8.4",
-        "react-dom": "~16.8.4",
-        "redoc": "~2.0.0-rc.70",
-        "redoc-cli": "~0.13.14",
-        "rxjs": "~7.0.1",
-        "styled-components": "~5.1.1"
+        "@antora/cli": "~3.1.4",
+        "@antora/site-generator-default": "~3.1.4"
     }
 }

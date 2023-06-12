@@ -55,12 +55,12 @@ toc::[]
 | /learning
 |===
 
-*assuming a URL prefix of https://docs.datastax.com/en
+*assuming a URL prefix of https://docs.datastax.com/en/streaming
 
 === DataStax Streaming Documentation Site
 
 This is the "parent" site to the entire line of business.
-There are only 1-2 pages in the entire site, with no formal left navigation.
+There are only 1-2 pages in the entire site.
 The pages are meant to be high-level "directional" pages, helping someone understand what products have documentation, their purpose in the world, and a link to that product's index page.
 
 === DataStax Astra Streaming
@@ -142,44 +142,25 @@ git clone https://github.com/datastax/starlight-for-rabbitmq-docs
 git clone https://github.com/datastax/streaming-learning-docs
 ----
 
-. Install the site dependencies and the Antora CLI.
+. Build the site to ensure the local playbook is working properly. Note this could take quite a while to run the first time (~20-30 mins). Subsequent builds will be much faster.
 +
 [source,shell]
 ----
-cd ./datastax-streaming-docs-site
-----
-+
-[source,shell]
-----
-npm install
-----
-+
-[source,shell]
-----
-npm i --location=global @antora/cli
-----
-+
-[source,shell]
-----
-antora -v
-----
-+
-[source,shell]
-----
-cd ../
+cd datastax-streaming-docs-site
+./gradlew -PtoDir="build/site" antora --playbook ./antora-playbooks/develop.yaml
 ----
 
-. Build the site to ensure the local playbook is working properly (you should be in the datastax-streaming-site folder).
-+
-[source,shell]
-----
-antora --fetch --clean ./datastax-streaming-docs-site/antora-playbooks/antora-local-playbook.yaml
-----
+. If built correctly you should have a new `build/site folder that holds the compiled Streaming documentation site.
 
-. If built correctly you should have a new `_build` folder that holds the compiled Streaming documentation site.
+== Developing new documentation
 
-. Open the parent `datastax-streaming-site` folder in your editor of choice.
-It's not recommended to open each site's folder individually (i.e. `code ./`).
+With the above folder structure in place you can now edit any of the documentation areas. There are a few key things to keep in mind.
+
+. Each documentation area is a separate git repo. You can edit the files in your local folder, but you'll need to commit and push those changes to the repo.
+
+. Building the streaming docs site means to use a playbook to clone and build each documentation area. Each playbook utilizes different git schemes for retrieving the src.
+
+. Typically, for local desktop development you will use the "develop" playbook. Unlike the other playbook, this uses the branch of each docs area that oyu have checked out (HEAD). This means you can make changes to the docs and see them reflected in the streaming docs site without having to commit and push.
 
 == Goals of documentation
 
