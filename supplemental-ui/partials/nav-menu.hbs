@@ -1,8 +1,8 @@
 {{#with page.navigation}}
 <div class="nav-panel-menu is-active" data-panel="menu">
   <nav class="nav-menu">
-    {{#if (not (eq "/streaming/index.html" @root.page.url))}}
-    <h3 class="title"><a href="{{{@root.site.url}}}/streaming">DataStax Streaming Home</a></h3>
+    {{#if (display-streaming-home-link)}}
+    <h3 class="title"><a href="{{ base-streaming-url }}/streaming">DataStax Streaming Home</a></h3>
     {{/if}}
     {{#with @root.page.componentVersion}}
         {{#if (not (eq "DataStax Streaming" ./title))}}
@@ -10,8 +10,12 @@
         {{/if}}
     {{/with}}
 {{> nav-tree navigation=this}}
-
-
+{{#if (display-learning-advert)}}
+    <div class="doc" style="margin:0;">
+      <div class="sidebarblock halign-center" style=" padding: 15px 0 15px 0; margin: 0; box-shadow:0 4px 2px rgb(32 41 58 / 8%), 0 2px 4px rgb(32 41 58 / 8%), 0 1px 6px rgb(32 41 58 / 12%)">&#128064 Looking for examples and<br>use cases?<br><a href="{{ base-streaming-url }}/streaming-learning" style="color:blue">Visit our learning site</a>
+      </div>
+    </div>
+{{/if}}
   <gcx-schema-sample-app-gallery></gcx-schema-sample-app-gallery>
   <gcx-schema-bottom-sidebar></gcx-schema-bottom-sidebar>
   </nav>
