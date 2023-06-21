@@ -1,0 +1,20 @@
+<script id="site-script" src="{{{uiRootPath}}}/js/site.js" data-ui-root-path="{{{uiRootPath}}}"></script>
+<script async src="{{{uiRootPath}}}/js/vendor/highlight.js"></script>
+{{#if env.SITE_SEARCH_PROVIDER}}
+    {{> search-scripts}}
+{{/if}}
+{{# if (display-astra-advert) }}
+<script type="application/javascript">
+    window.onload = (event) => {
+      const advert = `<div class="doc" style="margin:15px 0 0 0;padding:0;">
+        <a href="https://astra.datastax.com/streamingsignup" target="_blank" style="border: 0;text-decoration: none;">
+          <div class="sidebarblock halign-center" style="margin: 0;padding: 20px;background: var(--color-purple);color: white;box-shadow:0 4px 2px rgb(32 41 58 / 8%), 0 2px 4px rgb(32 41 58 / 8%), 0 1px 6px rgb(32 41 58 / 12%);">
+          Your free Pulsar tenant is waiting<br><span style="padding-top:10px;font-weight:bold">Click to get started on Astra now</span>
+          </div></a>
+        </div>`
+      if(document.getElementsByClassName('toc-menu')?.length > 1){
+        document.getElementsByClassName('toc-menu')[1].insertAdjacentHTML('beforeend', advert);
+      }
+    };
+</script>
+{{/if}}
