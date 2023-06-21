@@ -64,9 +64,7 @@ content:
     # OP SITE
     - url: https://github.com/datastax/pulsar-operator-docs.git
       edit_url: '{web_url}/blob/{refname}/{path}'
-      branches: 'release/{0..99}.{0..99}.{0..99}.x'
-      version:
-        release/(*): '$1'
+      branches: 'main'
 
 runtime:
   log:
