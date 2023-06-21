@@ -3,11 +3,6 @@ site:
   start_page: streaming::index.adoc
   url: https://docs.datastax.com/en/streaming
 
-output:
-  #dir: '~/work/datastax-streaming-docs-site/build/site'
-  dir: 'build/site'
-  clean: true
-
 urls:
   redirect_facility: httpd
   latest_version_segment_strategy: redirect:from

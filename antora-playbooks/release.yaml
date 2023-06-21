@@ -9,11 +9,6 @@ site:
     segmentIo: 'd24gQtyKIUu5mLdkp11xjfiXLhRqx0HH'
     googleAnalytics: 'UA-20879577-1'
 
-output:
-  #dir: '~/work/datastax-streaming-docs-site/build/site'
-  dir: 'build/site'
-  clean: true
-
 urls:
   redirect_facility: httpd
   latest_version_segment_strategy: redirect:from
