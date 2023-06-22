@@ -31,4 +31,36 @@
     details[open]{
         margin-bottom: 25px;
     }
+
+    li.nav-item.toggler.is-active[data-depth="1"] .nav-text {
+        padding: 8px 0px 8px 32px;
+    }
+
+    .nav-item.is-active[data-depth="1"] .nav-list .nav-item.toggler[data-depth="2"] {
+        padding: 0 15px;
+    }
+
+    .nav-item.is-active[data-depth="2"] .nav-list .nav-item.toggler[data-depth="3"]{
+        padding: 0 15px;
+    }
+
+    .nav-item.is-active[data-depth="1"] li[data-depth="2"]>a.nav-link,
+    .nav-item.is-active[data-depth="0"]>span.nav-text~ul .nav-item[data-depth="1"] >a.nav-link {
+        padding: 8px 48px;
+        font-weight: 700;
+    }
+
+    .nav-item.is-active[data-depth="2"] li[data-depth="3"]>a.nav-link,
+    .nav-item.is-active[data-depth="1"]>span.nav-text~ul .nav-item[data-depth="2"] >a.nav-link {
+        padding: 8px 0 8px 48px;
+    }
+
+    .nav-item.is-active[data-depth="3"] li[data-depth="4"]>a.nav-link,
+    .nav-item.is-active[data-depth="2"]>span.nav-text~ul .nav-item[data-depth="3"] >a.nav-link {
+        padding: 8px 0 8px 48px;
+    }
+
+    .doc h1 a, .doc h2 a, .doc h3 a, .doc h4 a, .doc h5 a, .doc h6 a {
+        color: inherit !important;
+    }
 </style>
