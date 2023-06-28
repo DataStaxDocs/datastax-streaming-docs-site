@@ -4,7 +4,7 @@
 
 * xref:luna-streaming::index.adoc[]
 
-* xref:pulsar-operator::index.adoc[]
+* xref:kaap-operator::index.adoc[]
 
 // * xref:starlight-for-kafka::index.adoc[]
 
