@@ -62,7 +62,7 @@ content:
         stage/(*): '$1'
 
     # OP SITE
-    - url: https://github.com/datastax/pulsar-operator-docs.git
+    - url: https://github.com/datastax/kaap-operator-docs.git
       edit_url: '{web_url}/blob/{refname}/{path}'
       branches: 'main'
 
