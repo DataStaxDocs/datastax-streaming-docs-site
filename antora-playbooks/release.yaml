@@ -61,6 +61,13 @@ content:
       version:
         release/(*): '$1'
 
+    # OP SITE
+    - url: https://github.com/datastax/kaap-operator-docs.git
+      edit_url: '{web_url}/blob/{refname}/{path}'
+      branches: 'release/{0..99}.{0..99}.{0..99}'
+      version:
+        release/(*): '$1'
+
 runtime:
   log:
     level: info

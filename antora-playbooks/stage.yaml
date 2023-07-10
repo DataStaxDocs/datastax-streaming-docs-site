@@ -61,6 +61,13 @@ content:
       version:
         stage/(*): '$1'
 
+    # OPERATOR SITE
+    - url: https://github.com/datastax/kaap-operator-docs.git
+      edit_url: '{web_url}/blob/{refname}/{path}'
+      branches: 'stage/{0..99}.{0..99}.{0..99}'
+      version:
+        stage/(*): '$1'
+
 runtime:
   log:
     level: info
