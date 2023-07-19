@@ -17,46 +17,46 @@ content:
   branches: HEAD #use the currently checked out branch, if not specified
   sources:
     # DATASTAX STREAMING DOCUMENTATION MAIN PAGE
-    - url: ../../datastax-streaming-docs-site
+    - url: ../datastax-streaming-docs-site
       edit_url: '{web_url}/blob/{refname}/{path}'
       start_path: site-main
 
     # LUNA STREAMING DOCUMENTATION SITE
-    - url: ../../pulsar-docs
+    - url: ../pulsar-docs
       edit_url: '{web_url}/blob/{refname}/{path}'
       branches: 'develop/{0..99}.{0..99}_{0..99}.x'
       version:
         develop/({0..99}).({0..99})_({0..99}).x: '$1.$3-$5.x'
 
     # ASTRA STREAMING DOCUMENTATION SITE
-    - url: ../../astra-streaming-docs
+    - url: ../astra-streaming-docs
       edit_url: '{web_url}/blob/{refname}/{path}'
 
     # PULSAR LEARNING SITE
-    - url: ../../streaming-learning-docs
+    - url: ../streaming-learning-docs
       edit_url: '{web_url}/blob/{refname}/{path}'
 
     # STARLIGHT SITES
-    - url: ../../starlight-for-kafka-docs
+    - url: ../starlight-for-kafka-docs
       edit_url: '{web_url}/blob/{refname}/{path}'
       branches: 'develop/{0..99}.{0..99}.{0..99}.x'
       version:
         develop/(*): '$1'
 
-    - url: ../../starlight-for-rabbitmq-docs
+    - url: ../starlight-for-rabbitmq-docs
       edit_url: '{web_url}/blob/{refname}/{path}'
       branches: 'develop/{0..99}.{0..99}.{0..99}.x'
       version:
         develop/(*): '$1'
 
-    - url: ../../starlight-for-jms-docs
+    - url: ../starlight-for-jms-docs
       edit_url: '{web_url}/blob/{refname}/{path}'
       branches: 'develop/{0..99}.{0..99}'
       version:
         develop/(*): '$1'
 
     # OP SITE
-    - url: ../../kaap-operator-docs
+    - url: ../kaap-operator-docs
       edit_url: '{web_url}/blob/{refname}/{path}'
       branches: 'develop/{0..99}.{0..99}.{0..99}'
       version:
@@ -71,7 +71,7 @@ ui:
   bundle:
     url: https://github.com/riptano/antora-ui-docs/releases/latest/download/ui-bundle.zip
     snapshot: true
-  supplemental_files: ../supplemental-ui
+  supplemental_files: supplemental-ui
 
 asciidoc:
   attributes:
@@ -113,4 +113,4 @@ asciidoc:
 
   extensions:
   - '@asciidoctor/tabs'
-  - ../lib/remote-include-processor.js
+  - lib/remote-include-processor.js

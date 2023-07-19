@@ -77,7 +77,7 @@ ui:
   bundle:
     url: https://github.com/riptano/antora-ui-docs/releases/latest/download/ui-bundle.zip
     snapshot: true
-  supplemental_files: ../supplemental-ui
+  supplemental_files: supplemental-ui
 
 asciidoc:
   attributes:
@@ -119,4 +119,4 @@ asciidoc:
 
   extensions:
   - '@asciidoctor/tabs'
-  - ../lib/remote-include-processor.js
+  - lib/remote-include-processor.js
