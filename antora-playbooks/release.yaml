@@ -75,7 +75,8 @@ runtime:
 
 ui:
   bundle:
-    url: https://github.com/riptano/antora-ui-docs/releases/latest/download/ui-bundle.zip
+    # url: https://github.com/riptano/antora-ui-docs/releases/latest/download/ui-bundle.zip
+    url: https://github.com/riptano/antora-ui-docs/releases/download/prod-18/ui-bundle.zip
     snapshot: true
   supplemental_files: supplemental-ui
 
