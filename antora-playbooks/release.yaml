@@ -2,12 +2,12 @@ site:
   title: DataStax Streaming Docs
   start_page: streaming::index.adoc
   url: https://docs.datastax.com/en/streaming
-  # The google_analytics and segment_io site keys must be in the release playbook
-  # of each docset. This ensures that the Google Tag Manager (GTM) and Segment
-  # scripts get loaded into the docsets that get published to docs.datastax.com.
+  # The keys.segmentIo site key must be in the site-publish playbook of each
+  # docset. This loads Segment into the docset build, and is a requirement for
+  # collecting site analytics.
   keys:
-    google_analytics: 'GTM-5FSG7Q'
-    segment_io: 'd24gQtyKIUu5mLdkp11xjfiXLhRqx0HH'
+    segmentIo: 'd24gQtyKIUu5mLdkp11xjfiXLhRqx0HH'
+    googleAnalytics: 'UA-20879577-1'
 
 output:
   #dir: '~/work/datastax-streaming-docs-site/build/site'
@@ -118,5 +118,5 @@ asciidoc:
     emoji-smile: "&#128512"
 
   extensions:
-  - '@asciidoctor/tabs'
-  - lib/remote-include-processor.js
+    - lib/tabs-block.js
+    - lib/remote-include-processor.js

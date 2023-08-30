@@ -112,5 +112,5 @@ asciidoc:
     emoji-smile: "&#128512"
 
   extensions:
-  - '@asciidoctor/tabs'
-  - lib/remote-include-processor.js
+    - lib/tabs-block.js
+    - lib/remote-include-processor.js
