@@ -1,13 +1,26 @@
 name: Docsbot Deploy Site
+
 on:
   issue_comment:
     types: [created]
+  workflow_dispatch:
 
 jobs:
-  dispatchCommand:
+  RemoveSite:
+    name: Remove site
     runs-on: ubuntu-latest
     steps:
-      - name: URL encode PR title
+      - name: Validate title
+        env:
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+        run: |
+         if ! echo "$ISSUE_TITLE" | grep -qE "^[a-zA-Z0-9 _-]{1,100}$"; then
+          echo "Issue title contains invalid characters or is too long."
+          exit 1
+         fi
+
+      - name: URL encode title
+        id: url_encode_title
         run: |
           function url_encode() {
             echo "$@" \
@@ -45,7 +58,8 @@ jobs:
                 -e 's/~/%7e/g'
           }
 
-          echo "title_url=$(url_encode '${{ github.event.issue.title }}')" >> $GITHUB_ENV
+          title_url_encoded=$(url_encode "$ISSUE_TITLE")
+          echo "::set-output name=title_url::$title_url_encoded"
 
       - uses: peter-evans/slash-command-dispatch@v3.0.1
         if: success()
@@ -64,5 +78,5 @@ jobs:
             comment-id=${{ github.event.comment.id }}
             npm-script="build:prod"
             deploy-server=coppi
-            deploy-dir="streaming-docs/${{ env.title_url }}"
+            deploy-dir="streaming-docs/${{ steps.url_encode_title.outputs.title_url }}"
             repository=${{ github.repository }}
