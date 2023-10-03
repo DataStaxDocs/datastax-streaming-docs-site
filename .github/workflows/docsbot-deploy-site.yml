@@ -1,12 +1,24 @@
 name: Docsbot Deploy Site
+
 on:
   issue_comment:
     types: [created]
 
 jobs:
-  dispatchCommand:
+  RemoveSite:
+    name: Remove site
     runs-on: ubuntu-latest
     steps:
+      - name: Validate title
+        env:
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+        run: |
+          # Ensure title only contains alphanumeric characters, spaces, hyphens, and underscores.
+          if ! [[ "$ISSUE_TITLE" =~ ^[a-zA-Z0-9 _-]{1,100}$ ]]; then
+            echo "Issue title contains invalid characters or is too long."
+            exit 1
+          fi
+
       - name: URL encode title
         id: url_encode_title
         run: |
@@ -46,7 +58,7 @@ jobs:
                 -e 's/~/%7e/g'
           }
 
-          title_url_encoded=$(url_encode "${{ github.event.issue.title }}")
+          title_url_encoded=$(url_encode "$ISSUE_TITLE")
           echo "::set-output name=title_url::$title_url_encoded"
 
       - uses: peter-evans/slash-command-dispatch@v3.0.1
