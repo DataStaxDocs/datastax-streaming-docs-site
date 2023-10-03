@@ -14,7 +14,6 @@ jobs:
         env:
           ISSUE_TITLE: ${{ github.event.issue.title }}
         run: |
-         # Ensure title only contains alphanumeric characters, spaces, hyphens, and underscores.
           if ! [[ "$ISSUE_TITLE" =~ ^[a-zA-Z0-9 _-]{1,100}$ ]]; then
             echo "Issue title contains invalid characters or is too long."
             exit 1
