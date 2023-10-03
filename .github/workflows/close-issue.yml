@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: URL encode title
+        id: url_encode_title
         run: |
           function url_encode() {
             echo "$@" \
@@ -49,12 +50,14 @@ jobs:
                 -e 's/~/%7e/g'
           }
 
-          echo "title_url=$(url_encode '${{ github.event.issue.title }}')" >> $GITHUB_ENV
+          title_url_encoded=$(url_encode "${{ github.event.issue.title }}")
+          echo "::set-output name=title_url::$title_url_encoded"
 
       - uses: benc-uk/workflow-dispatch@v121
         with:
-          token: ${{ secrets.DOCSBOT_DISPATCH_TOKEN }}
-          repo: riptano/docsbot
-          ref: main
-          workflow: remove-site_command.yml
-          inputs: '{"deploy-server": "coppi","deploy-dir": "streaming-docs/${{ env.title_url }}"}'
+            token: ${{ secrets.DOCSBOT_DISPATCH_TOKEN }}
+            repo: riptano/docsbot
+            ref: main
+            workflow: remove-site_command.yml
+            inputs: '{"deploy-server": "coppi","deploy-dir": "streaming-docs/${{ steps.url_encode_title.outputs.title_url }}"}'
+
