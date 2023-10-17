@@ -55,6 +55,13 @@ content:
       version:
         develop/(*): '$1'
 
+    # OP SITE
+    - url: ../kaap-operator-docs
+      edit_url: '{web_url}/blob/{refname}/{path}'
+      branches: 'develop/{0..99}.{0..99}.{0..99}'
+      version:
+        develop/(*): '$1'
+
 runtime:
   log:
     level: info
@@ -105,5 +112,5 @@ asciidoc:
     emoji-smile: "&#128512"
 
   extensions:
-    - lib/tabs-block.js
-    - lib/remote-include-processor.js
+  - '@asciidoctor/tabs'
+  - lib/remote-include-processor.js

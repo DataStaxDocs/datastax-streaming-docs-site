@@ -4,6 +4,8 @@
 
 * xref:luna-streaming::index.adoc[]
 
+* xref:kaap-operator::index.adoc[]
+
 * xref:starlight-for-kafka::index.adoc[]
 
 * xref:starlight-for-rabbitmq::index.adoc[]

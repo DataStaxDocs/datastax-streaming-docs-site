@@ -2,12 +2,12 @@ site:
   title: DataStax Streaming Docs
   start_page: streaming::index.adoc
   url: https://docs.datastax.com/en/streaming
-  # The keys.segmentIo site key must be in the site-publish playbook of each
-  # docset. This loads Segment into the docset build, and is a requirement for
-  # collecting site analytics.
+  # The google_analytics and segment_io site keys must be in the release playbook
+  # of each docset. This ensures that the Google Tag Manager (GTM) and Segment
+  # scripts get loaded into the docsets that get published to docs.datastax.com.
   keys:
-    segmentIo: 'd24gQtyKIUu5mLdkp11xjfiXLhRqx0HH'
-    googleAnalytics: 'UA-20879577-1'
+    google_analytics: 'GTM-5FSG7Q'
+    segment_io: 'd24gQtyKIUu5mLdkp11xjfiXLhRqx0HH'
 
 output:
   #dir: '~/work/datastax-streaming-docs-site/build/site'
@@ -61,6 +61,13 @@ content:
       version:
         stage/(*): '$1'
 
+    # OPERATOR SITE
+    - url: https://github.com/datastax/kaap-operator-docs.git
+      edit_url: '{web_url}/blob/{refname}/{path}'
+      branches: 'stage/{0..99}.{0..99}.{0..99}'
+      version:
+        stage/(*): '$1'
+
 runtime:
   log:
     level: info
@@ -111,5 +118,5 @@ asciidoc:
     emoji-smile: "&#128512"
 
   extensions:
-    - lib/tabs-block.js
-    - lib/remote-include-processor.js
+  - '@asciidoctor/tabs'
+  - lib/remote-include-processor.js

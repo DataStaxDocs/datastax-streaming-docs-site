@@ -81,6 +81,24 @@ image::icons/what-is-astra-streaming.svg[icon description,40,xref=luna-streaming
 ++++
 
 [sidebar.landing-card]
+.xref:kaap-operator::index.adoc[KAAP Operator]
+****
+--
+Meet KAAP, the Kubernetes Autoscaler for Apache Pulsar. KAAP simplifies running Apache Pulsar on Kubernetes by applying the familiar operator pattern to Pulsar's components, and horizonally scaling resources up or down based on CPU and memory workloads. xref:kaap-operator::index.adoc[Learn more].
+--
+[.landing-card-body-icon]
+image::icons/avoid-cloud-lockin.svg[[icon description,40,xref=kaap-operator::index.adoc]
+****
+
+++++
+</div>
+++++
+
+++++
+<div class="landing-row">
+++++
+
+[sidebar.landing-card]
 .xref:streaming-learning:pulsar-io:connectors/index.adoc[Sink and source connectors]
 ****
 --
