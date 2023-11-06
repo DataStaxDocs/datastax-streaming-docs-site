@@ -1,6 +1,6 @@
 * xref:streaming-learning:pulsar-io:connectors/index.adoc[Learning Site]
 
-* xref:astra-streaming:ragstack:index.adoc[RagStack]
+* xref:astra-streaming:ragstack:index.adoc[RAGStack]
 
 * xref:astra-streaming::index.adoc[]
 
