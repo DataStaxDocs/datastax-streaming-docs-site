@@ -1,7 +1,7 @@
 site:
   title: DataStax Streaming Docs
-  start_page: streaming::index.adoc
   url: https://docs.datastax.com/en/streaming
+  start_page: streaming::index.adoc
   robots: allow
   # The google_analytics and segment_io site keys must be in the release playbook
   # of each docset. This ensures that the Google Tag Manager (GTM) and Segment
