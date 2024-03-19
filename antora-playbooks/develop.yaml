@@ -1,7 +1,7 @@
 site:
   title: LOCAL DataStax Streaming Docs
-  start_page: streaming::index.adoc
   url: https://docs.datastax.com/en/streaming
+  start_page: streaming::index.adoc
 
 output:
   #dir: '~/work/datastax-streaming-docs-site/build/site'

@@ -1,6 +1,7 @@
 name: streaming
 title: DataStax Streaming
 version: ~
+start_page: index.adoc
 
 nav:
   - modules/ROOT/nav.adoc
